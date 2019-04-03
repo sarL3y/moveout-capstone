@@ -10,8 +10,10 @@ const { DATABASE_URL, PORT } = require('./config');
 
 mongoose.Promise = global.Promise;
 
-app.use(express.static('public'));
 app.use(morgan('common'));
+
+app.use(express.static('public'));
+
 
 
 

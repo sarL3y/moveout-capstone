@@ -22,7 +22,8 @@ describe('Public', function() {
     });
 
     it('should serve "public" files', function() {
-        return chai.request(app)
+        return chai
+            .request(app)
             .get('/')
             .then(function(res) {
                 expect(res).to.have.status(200);
