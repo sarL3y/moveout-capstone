@@ -10,6 +10,7 @@ const expect = chai.expect;
 
 chai.use(chaiHttp);
 
+
 describe('Public', function() {
 
     before(function() {
@@ -19,7 +20,7 @@ describe('Public', function() {
     after(function() {
         return closeServer;
     });
-    
+
     it('should serve "public" files', function() {
         return chai.request(app)
             .get('/')
