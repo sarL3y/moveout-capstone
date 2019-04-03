@@ -11,7 +11,7 @@ const expect = chai.expect;
 chai.use(chaiHttp);
 
 
-describe('Public', function() {
+describe('Views // Index.html ', function() {
 
     before(function() {
         return runServer(TEST_DATABASE_URL);
@@ -21,7 +21,7 @@ describe('Public', function() {
         return closeServer;
     });
 
-    it('should serve "public" files', function() {
+    it('should serve "views/index.html" file', function() {
         return chai
             .request(app)
             .get('/')

@@ -4,6 +4,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 
+const router = require('./app/routers/router.js');
+
 const app = express();
 
 const { DATABASE_URL, PORT } = require('./config');
@@ -11,15 +13,12 @@ const { DATABASE_URL, PORT } = require('./config');
 mongoose.Promise = global.Promise;
 
 app.use(morgan('common'));
-
 app.use(express.static('public'));
+app.use(router);
 
-
-
-
-
-
-
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html');
+  });
 
 /* runServer & closeServer */
 
@@ -45,7 +44,6 @@ function runServer() {
                 });
     });
 };
-
 
 function closeServer() {
     // return mongoose.disconnect().then(() => {
