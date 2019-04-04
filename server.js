@@ -16,9 +16,9 @@ app.use(morgan('common'));
 app.use(express.static('public'));
 app.use(router);
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/views/index.html');
-  });
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + '/views/index.html');
+//   });
 
 /* runServer & closeServer */
 
@@ -57,9 +57,6 @@ function closeServer() {
             });
         });
 };
-
-
-
 
 if (require.main === module) {
     runServer().catch(err => console.error(err));
