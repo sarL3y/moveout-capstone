@@ -3,21 +3,21 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
-
-const router = require('./app/routers/router.js');
-
 const app = express();
+
+const indexRouter = require('./app/routers/router.js');
 
 const { DATABASE_URL, PORT } = require('./config');
 
 mongoose.Promise = global.Promise;
 
 app.use(morgan('common'));
-app.use(express.static('public'));
-app.use(router);
+app.use(express.static('public/views/'));
+
+app.use('/', indexRouter);
 
 // app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/views/index.html');
+//     res.sendFile(__dirname + '/public/views/index.html');
 //   });
 
 /* runServer & closeServer */
