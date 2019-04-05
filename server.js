@@ -1,37 +1,51 @@
 'use strict';
 
 const express = require('express');
-const mongoose = require('mongoose');
-const morgan = require('morgan');
 const app = express();
+const mongoose = require('mongoose');
+const passport = require('passport');
 
-const indexRouter = require('./app/routers/router.js');
+const morgan = require('morgan');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+
+const submitForm = require('./app/routers/submitForm');
 
 const { DATABASE_URL, PORT } = require('./config');
 
-mongoose.Promise = global.Promise;
 
-app.use(morgan('common'));
-app.use(express.static('public/views/'));
 
-app.use('/', indexRouter);
+app.use(morgan('dev'));
+
+app.use(express.static('public'));
+app.use(bodyParser());
+
+app.set('view engine', 'ejs');
+
+app.use('/submitForm', submitForm);
+
+require('./app/routers/main.js')(app, passport);
+
+mongoose.Promise = global.Promise; 
+
+// app.use('/', formsRouter);
+// app.use('/', indexRouter);
 
 // app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/public/views/index.html');
+//     res.sendFile(__dirname + '/views/index.html');
 //   });
 
 /* runServer & closeServer */
 
 let server;
 
-function runServer() {
-    const port = process.env.PORT || 8080;
+function runServer(databaseUrl, port = PORT) {
 
     return new Promise((resolve, reject) => {
-        // mongoose.connect(databaseUrl, err => {
-            // if (err) {
-            //     return reject(err);
-            // }
+        mongoose.connect(databaseUrl, err => {
+            if (err) {
+                return reject(err);
+            }
 
             server = app
                 .listen(port, () => {
@@ -42,11 +56,12 @@ function runServer() {
                     // mongoose.disconnect();
                     reject(err);
                 });
+            });
     });
 };
 
 function closeServer() {
-    // return mongoose.disconnect().then(() => {
+    return mongoose.disconnect().then(() => {
         return new Promise((resolve, reject) => {
             console.log('Closing server');
             server.close(err => {
@@ -56,10 +71,11 @@ function closeServer() {
                 resolve();
             });
         });
+    });
 };
 
 if (require.main === module) {
-    runServer().catch(err => console.error(err));
+    runServer(DATABASE_URL).catch(err => console.error(err));
 };
 
 module.exports = { app, runServer, closeServer };
