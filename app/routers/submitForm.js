@@ -41,7 +41,7 @@ router.post('/', jsonParser, (req, res) => {
         .catch(err => {
             console.error(err);
             res.status(500).json({
-                error: 'Couldn\'t create form?'
+                error: 'Couldn\'t create form? But I don\'t know why'
             });
         });
   });

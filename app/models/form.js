@@ -7,10 +7,6 @@ mongoose.Promise = global.Promise;
 const nameSchema = mongoose.Schema({
     firstName: String,
     lastName: String,
-    userName: {
-      type: String,
-      unique: true
-    }
 });
 
 const commentSchema = mongoose.Schema({
