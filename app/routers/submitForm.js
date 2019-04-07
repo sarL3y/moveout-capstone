@@ -35,6 +35,7 @@ router.post('/', jsonParser, (req, res) => {
             email: form.email,
             phone: form.phone,
             address: form.address,
+            comments: form.comments,
             leaseRemainder: form.leaseRemainder,
             created: form.created
         }))
