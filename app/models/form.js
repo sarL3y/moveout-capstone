@@ -41,9 +41,9 @@ formSchema.pre('findOne', function(next) {
     next();
 });
 
-formSchema.virtual('newName').get(function() {
-    return `${this.name.firstName} ${this.name.lastName}`.trim();
-});
+// formSchema.virtual('newName').get(function() {
+//     return `${this.name.firstName} ${this.name.lastName}`.trim();
+// });
 
 formSchema.virtual('newAddress').get(function() {
     return `${this.address.streetName}

@@ -23,18 +23,10 @@ app.use(bodyParser());
 app.set('view engine', 'ejs');
 
 app.use('/submitForm', submitForm);
-// app.use('/users', )
 
 require('./app/routers/main.js')(app, passport);
 
 mongoose.Promise = global.Promise; 
-
-// app.use('/', formsRouter);
-// app.use('/', indexRouter);
-
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/views/index.html');
-//   });
 
 /* runServer & closeServer */
 
@@ -62,7 +54,7 @@ function runServer(databaseUrl, port = PORT) {
 };
 
 function closeServer() {
-    
+
     return mongoose.disconnect().then(() => {
         return new Promise((resolve, reject) => {
             console.log('Closing server');
