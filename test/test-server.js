@@ -6,7 +6,7 @@ const chaiHttp = require('chai-http');
 const expect = chai.expect;
 
 const { app, runServer, closeServer } = require('../server');
-const { DATABASE_URL } = require('../config');
+const { TEST_DATABASE_URL } = require('../config');
 
 chai.use(chaiHttp);
 
@@ -14,7 +14,7 @@ chai.use(chaiHttp);
 describe('Views // Index.ejs ', function() {
 
     before(function() {
-        return runServer(DATABASE_URL);
+        return runServer(TEST_DATABASE_URL);
     });
 
     after(function() {

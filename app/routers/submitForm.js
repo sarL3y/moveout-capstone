@@ -47,7 +47,7 @@ router.post('/', jsonParser, (req, res) => {
         });
   });
 
-  module.exports = router;
+module.exports = router;
 
   // User
     //     .findOne({ name: req.body.name })

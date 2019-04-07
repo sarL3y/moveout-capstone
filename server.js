@@ -10,6 +10,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 
 const submitForm = require('./app/routers/submitForm');
+const getForms = require('./app/routers/getForms');
 
 const { DATABASE_URL, PORT } = require('./config');
 
@@ -23,6 +24,7 @@ app.use(bodyParser());
 app.set('view engine', 'ejs');
 
 app.use('/submitForm', submitForm);
+app.use('/formsList', getForms);
 
 require('./app/routers/main.js')(app, passport);
 
