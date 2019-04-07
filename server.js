@@ -23,6 +23,7 @@ app.use(bodyParser());
 app.set('view engine', 'ejs');
 
 app.use('/submitForm', submitForm);
+// app.use('/users', )
 
 require('./app/routers/main.js')(app, passport);
 
@@ -53,7 +54,7 @@ function runServer(databaseUrl, port = PORT) {
                     resolve();
                 })
                 .on('error', err => {
-                    // mongoose.disconnect();
+                    mongoose.disconnect();
                     reject(err);
                 });
             });
