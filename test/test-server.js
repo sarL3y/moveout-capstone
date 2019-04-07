@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
+const expect = chai.expect;
+
 const { app, runServer, closeServer } = require('../server');
 const { DATABASE_URL } = require('../config');
-
-const expect = chai.expect;
 
 chai.use(chaiHttp);
 
@@ -18,7 +18,7 @@ describe('Views // Index.ejs ', function() {
     });
 
     after(function() {
-        return closeServer;
+        return closeServer();
     });
 
     it('should serve "views/index.ejs" file', function() {
