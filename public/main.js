@@ -1,74 +1,22 @@
 'use strict';
 
-// const MOCK_FORM_DATA_ADMIN = {
-//     'forms': [
-//         {
-//             "name": {
-//                 'firstName': 'Mock',
-//                 'lastName': 'User'
-//             },
-//             'email': 'mockemail@mockemail.com',
-//             'phone': '3108675309',
-//             'address': {
-//                 'streetNumber': '123',
-//                 'streetName': 'Main Street',
-//                 'city': 'Anytown',
-//                 'state': 'CA',
-//                 'zipcode': '91602',
-//             },
-//             'leaseRemainder': {
-//                 'count': '7',
-//                 'daysOrMonths': 'Days',
-//             },
-//             'placeComments': 'Comments on place here',
-//             'otherComments': 'Other comments here'
-//         },
-//         {
-//             'formId': '23456',
-//             'username': 'mockusername2',
-//             'name': {
-//                 'firstName': 'Mock2',
-//                 'lastName': 'User2'
-//             },
-//             'email': 'mockemail2@mockemail.com',
-//             'phone': '6198675309',
-//             'address': {
-//                 'streetNumber': '1234',
-//                 'streetName': 'Main Street',
-//                 'city': 'Anytown',
-//                 'state': 'CA',
-//                 'zipcode': '91602',
-//             },
-//             'leaseRemainder': {
-//                 'count': '30',
-//                 'daysOrMonths': 'Months',
-//             },
-//             'placeComments': 'Comments on place here',
-//             'otherComments': 'Other comments here'
-//         }
-//     ]
-// };
+function displayForms(newResults) {
+    $('#results-list').empty();
+    $('#js-error-message').empty();
 
-// const MOCK_FORM_DATA_USER = {
-//     'form': {
-//         'name': {
-//             'firstName': 'Mock',
-//             'lastName': 'User'
-//         },
-//         'email': 'mockemail@mockemail.com',
-//         'phone': '3108675309',
-//         'address': {
-//             'streetNumber': '123',
-//             'streetName': 'Main Street',
-//             'city': 'Anytown',
-//             'state': 'CA',
-//             'zipcode': '91602',
-//         },
-//         'leaseRemainder': {
-//             'count': '7',
-//             'daysOrMonths': 'Days',
-//         },
-//         'placeComments': 'Comments on place here',
-//         'otherComments': 'Other comments here'
-//     },
-// };
+    for (let i = 0; i < newResults.forms.length; i++) {
+        $('#results-list').append(
+            `<li role="listitem">
+					<div class="items">
+						<p class="item">${newResults.forms[i].name}</p>
+					</div>
+                </li>`
+        );
+    }
+};
+
+function watchGetFormsButton() {
+    $('form').submit(event => {
+        event.preventDefault();
+    });
+};

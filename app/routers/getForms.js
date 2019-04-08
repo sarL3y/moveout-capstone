@@ -6,21 +6,28 @@ const jsonParser = bodyParser.json();
 
 const { Form } = require('../models/form');
 
+
+
 // GET
 router.get('/', jsonParser, (req, res) => {
     Form
-      .find()
-      .then(forms => {
-        res.json({
-          forms: forms.map(
-            (form) => form.serialize())
+        .find()
+        .then(forms => {
+            res.json({
+            forms: forms.map(
+                (form) => form.serialize())
+            });
+        })
+        .then(forms => {
+            displayResults(forms);
+        })
+        .catch(
+            err => {
+            console.error(err);
+            res.status(500).json({message: 'A /GET Internal server error'});
         });
-      })
-      .catch(
-        err => {
-          console.error(err);
-          res.status(500).json({message: 'A /GET Internal server error'});
-      });
-  });
+    });
+
+    
 
 module.exports = router;
