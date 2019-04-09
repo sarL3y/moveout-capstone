@@ -1,0 +1,46 @@
+'use strict';
+
+function getForms() {
+    const DATA = '/formsList';
+
+    fetch(DATA)
+        .then(res => {
+            if (res.ok) {
+                return res.json();
+            }
+            throw new Error(res.statusText);
+        })
+        .then(resJson => displayForms(resJson))
+
+        .catch(err => {
+            $('#results-list').text(`Oops something went wrong ${err.message}`);
+        });
+};
+
+function displayForms(newResults) {
+    console.log(newResults);
+
+    $('#results-list').empty();
+    $('#js-error-message').empty();
+
+    for (let i = 0; i < newResults.length; i++) {
+        console.log(newResults.forms);
+
+        $('#results-list').append(
+            `<li role="listitem">
+					<div class="form-item">
+						<p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+					</div>
+                </li>`
+        );
+    }
+};
+
+function getAndDisplay() {
+    $('#js-show-forms').submit(event => {
+        event.preventDefault();
+        getForms(displayForms);
+    });
+};
+
+$(getAndDisplay);

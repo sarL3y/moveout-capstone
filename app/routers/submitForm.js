@@ -4,12 +4,13 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
-const { User, Form } = require('../models/form');
+const { Form } = require('../models/form');
 
 // POST
 router.post('/', jsonParser, (req, res) => {
-    const requiredFields = ['name', 'address', 'email', 'phone'];
-
+    const requiredFields = ['name', 'email', 'phone'];
+    console.log(req.body);
+    
     for (let i = 0; i < requiredFields.length; i++) {
       const field = requiredFields[i];
       if (!(field in req.body)) {

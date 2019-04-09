@@ -6,8 +6,8 @@ module.exports = function(app, passport) {
         res.render('pages/index');
     });
 
-    app.get('/forms', function(req, res) {
-        res.render('pages/forms');
+    app.get('/dashboard', function(req, res) {
+        res.render('pages/dashboard');
     });
 
     app.get('/login', function(req, res) {

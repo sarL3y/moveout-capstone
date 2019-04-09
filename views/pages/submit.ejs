@@ -1,9 +1,42 @@
 <% include ../partials/header %>
 
-    <p>Submit form page</p>
+<h2>Submit form page</h2>
 
-    <form action="submitForm">
-        <input type="submit" value="Submit Form" />
+<div class="form-container">
+    <form action="/submitForm" method="post" id="js-form" class="search-form" role="search">
+        <div class="row">
+            <label for="search-term" class="label-hidden">First Name</label>
+            <input type="text" name="firstName" id="js-search-term" placeholder="First Name" role="combobox" required>
+        </div>
+        <div class="row">
+            <label for="search-term" class="label-hidden">Last Name</label>
+            <input type="text" name="lastName" id="js-search-term" placeholder="Last Name" role="combobox" required>
+        </div>
+        <div class="row">
+            <label for="search-term" class="label-hidden">Email</label>
+            <input type="text" name="email" id="js-search-term" placeholder="Email" role="combobox" required>
+        </div>
+        <div class="row">
+            <label for="search-term" class="label-hidden">Phone</label>
+            <input type="text" name="phone" id="js-search-term" placeholder="Phone Number" role="combobox" required>
+        </div>
+        <div class="row">
+            <label for="search-term" class="label-hidden">Address</label>
+            <input type="text" name="address" id="js-search-term" placeholder="Address" role="combobox">
+        </div>
+        <div class="row">
+            <label for="search-term" class="label-hidden">Lease Remainder</label>
+            <input type="text" name="leaseRemainder" id="js-search-term" placeholder="Lease Remainder" role="combobox">
+        </div>
+        <div class="row">
+            <label for="search-term" class="label-hidden">Comments</label>
+            <input type="text" name="comments" id="js-search-term" placeholder="Comments" role="combobox">
+        </div>
+
+        <input type="submit" class="form-input" value="Submit" role="button">
     </form>
+</div>
+
+<p id="js-error-message" class="error-message"></p>
 
 <% include ../partials/footer %>

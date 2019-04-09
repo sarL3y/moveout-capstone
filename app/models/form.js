@@ -4,17 +4,20 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = global.Promise;
 
-const nameSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
-});
+// const nameSchema = mongoose.Schema({
+//     firstName: String,
+//     lastName: String,
+// });
 
-const commentSchema = mongoose.Schema({
-    content: String
-});
+// const commentSchema = mongoose.Schema({
+//     content: String
+// });
 
 const formSchema = mongoose.Schema({
-    name: [nameSchema],
+    name: {
+        firstName: { type: String, required: true },
+        lastName: { type: String, required: true }
+    },
     email: { type: String, required: true },
     phone: { type: Number, required: true },
     address: {
@@ -23,7 +26,7 @@ const formSchema = mongoose.Schema({
         state: { type: String, required: true },
         zipcode: { type: Number, required: true }
     },
-    comments: [commentSchema],
+    comments: { type: String },
     leaseRemainder: {
         count: Number,
         dayOrMonth: String
@@ -31,40 +34,38 @@ const formSchema = mongoose.Schema({
     created: { type: Date, default: Date.now }
 });
 
-formSchema.pre('find', function(next) {
-    this.populate('user');
-    next();
-});
-  
-formSchema.pre('findOne', function(next) {
-    this.populate('user');
-    next();
-});
-
 // formSchema.virtual('newName').get(function() {
 //     return `${this.name.firstName} ${this.name.lastName}`.trim();
 // });
 
-formSchema.virtual('newAddress').get(function() {
-    return `${this.address.streetName}
-    ${this.address.city}, ${this.address.state} ${this.address.zipcode}`.trim();
-});
+// formSchema.virtual('newAddress').get(function() {
+//     return `${this.address.streetName}
+//     ${this.address.city}, ${this.address.state} ${this.address.zipcode}`.trim();
+// });
 
 
 formSchema.methods.serialize = function() {
     return {
         id: this._id,
-        name: this.newName,
-        address: this.newAddress,
+        name: {
+            firstName: this.firstName,
+            lastName: this.lastName
+        },
+        address: {
+            streetName: this.streetName,
+            city: this.city,
+            state: this.state,
+            zipcode: this.zipcode
+        },
         phone: this.phone,
         email: this.email,
-        comments: this.comments,
+        comments: this.comments.content,
         leaseRemainder: this.leaseRemainder,
         created: this.created
     };
 };
 
-const User = mongoose.model('User', nameSchema);
+// const User = mongoose.model('User', nameSchema);
 const Form = mongoose.model('Form', formSchema);
 
 

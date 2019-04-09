@@ -1,15 +1,16 @@
 <% include ../partials/header %>
 
-    <p>Checkout all these forms</p>
+    <h2>Dashboard</h2>
+    <h3>Checkout all these forms</h3>
 
-    <form action="formsList">
+    <form action="/formsList" method="get" id="js-show-forms">
         <input type="submit" value="Show Forms" />
     </form>
 
     <section>
         <div class="container">
             <ul id="results-list">
-            
+            <!-- FILL WITH FORM RESULTS -->
             </ul>
         </div>
     </section>
