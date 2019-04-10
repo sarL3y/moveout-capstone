@@ -11,11 +11,6 @@ router.get('/', jsonParser, (req, res) => {
     Form
         .find()
         .then(forms => {
-            console.log(forms)
-
-            let tempData = forms.map(form => form.serialize())
-            console.log(tempData)
-
             res.json(forms)
         })
         .catch(

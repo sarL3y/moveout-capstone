@@ -1,5 +1,37 @@
 * {
 box-sizing: border-box;
+font-family: 'Roboto', Arial, sans-serif;
+}
+
+.wallpaper {
+	background-image: url(https://images.unsplash.com/photo-1464082354059-27db6ce50048?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9);
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.splash-container {
+	background: #ffffff;
+	border-radius: 10px;
+	box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
+	height: 30em;
+    width: 30em;
+    margin: 0 auto;
+	padding: 0;
+	-webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+	transition: -webkit-transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+	transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+	transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1),-webkit-transform 0.5s cubic-bezier(0.77, 0, 0.175, 1); 
+}
+
+.header-container {
+	margin-top: 20%;
 }
 
 h1 {
@@ -7,23 +39,45 @@ h1 {
 }
 
 a {
+    text-decoration: none;
+}
+
+.center-align {
     display: block;
-    margin-top: 20px;
+    text-align: center;
 }
 
-.form-container {
-	display: block;
-	max-width: 500px;
-	min-width: 300px;
-	margin: 0 auto;
+.btn {
+    width: 120px;
+    background-color: rgb(31, 94, 196);
+    color: white;
+    padding: 15px 30px 15px 30px;
 }
 
-.form-input {
-    margin-top: 20px;
+.forms-list-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-item {
+    border: 1px solid;
+    border-radius: 5px;
+}
+
+.submit-form-container {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    text-align: center;
 }
 
 .row {
+    display: flex;
     margin-top: 10px;
+}
+
+.row input {
+    flex: 1;
 }
 
 .label-hidden {
@@ -31,17 +85,17 @@ a {
 }
 
 p {
-    font-size: 80px;
+    font-size: 1em;
 }
 
 footer {
-    display: block;
-    position: absolute;
-    bottom: 0px;
+    position: fixed;
+    bottom: 0;
     margin: 0 auto;
     text-align: center;
 }
 
 footer p {
     font-size: 10px;
+    color: white;
 }

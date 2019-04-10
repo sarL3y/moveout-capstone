@@ -1,11 +1,21 @@
 <% include ../partials/header %>
 
-    <h1>MoveOut</h1>
+<div class="wallpaper">
+</div>
 
-    <h2>Some details about how we're going to help you</h2>
-
-    <a href="/submit">Get Started</a>
-
-    <a href="/login">Admin</a>
+<div class="splash-container">
+    <div class="center-align header-container">
+        <h1>MoveOut</h1>
+        <h2>Some details about how we're going to help you</h2>
+    </div>
+    <div class="center-align">
+        <form action="/submit" method="get">
+            <input type="submit" class="btn" value="Get Started" role="button">
+        </form>
+        <form action="/login" method="get">
+            <input type="submit" class="btn" value="Admin" role="button">
+        </form>
+    </div>
+</div>
 
 <% include ../partials/footer %>

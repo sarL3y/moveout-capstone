@@ -8,9 +8,9 @@ const { Form } = require('../models/form');
 
 // POST
 router.post('/', jsonParser, (req, res) => {
-    const requiredFields = ['name', 'email', 'phone'];
+    const requiredFields = ['firstName', 'lastName', 'email', 'phone'];
     console.log(req.body);
-    
+
     for (let i = 0; i < requiredFields.length; i++) {
       const field = requiredFields[i];
       if (!(field in req.body)) {
@@ -22,24 +22,19 @@ router.post('/', jsonParser, (req, res) => {
 
     Form
         .create({
-            name: req.body.name,
+            name: {
+                firstName: req.body.firstName,
+                lastName: req.body.lastName
+            },
             email: req.body.email,
             phone: req.body.phone,
             address: req.body.address,
             comments: req.body.comments,
+            monthlyRent: req.body.monthlyRent,
             leaseRemainder: req.body.leaseRemainder,
             created: req.body.created
         })
-        .then(form => res.status(201).json({
-            id: form.id,
-            name: form.name,
-            email: form.email,
-            phone: form.phone,
-            address: form.address,
-            comments: form.comments,
-            leaseRemainder: form.leaseRemainder,
-            created: form.created
-        }))
+        .then(form => res.status(201).json(form))
         .catch(err => {
             console.error(err);
             res.status(500).json({

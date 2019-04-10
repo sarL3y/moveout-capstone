@@ -21,11 +21,12 @@ const formSchema = mongoose.Schema({
     email: { type: String, required: true },
     phone: { type: Number, required: true },
     address: {
-        streetName: { type: String, required: true },
-        city: { type: String, required: true },
-        state: { type: String, required: true },
-        zipcode: { type: Number, required: true }
+        streetName: { type: String },
+        city: { type: String },
+        state: { type: String },
+        zipcode: { type: Number }
     },
+    monthlyRent: { type: Number },
     comments: { type: String },
     leaseRemainder: {
         count: Number,
@@ -59,6 +60,7 @@ formSchema.methods.serialize = function() {
         },
         phone: this.phone,
         email: this.email,
+        monthlyRent: this.monthlyRent,
         comments: this.comments.content,
         leaseRemainder: this.leaseRemainder,
         created: this.created
