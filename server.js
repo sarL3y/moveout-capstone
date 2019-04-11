@@ -12,7 +12,7 @@ const session = require('express-session');
 const submitForm = require('./app/routers/submitForm');
 const getForms = require('./app/routers/getForms');
 
-const { DATABASE_URL, PORT } = require('./config');
+const { DATABASE_URL, PORT } = require('./config/database');
 
 
 
