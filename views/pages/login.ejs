@@ -2,15 +2,20 @@
 
     <h2>Login Here</h2>
 
-    <div class="form-login">
-        <form action="post">
-            <label>
+    <div class="login-form-container">
+        <form action="/login" method="post" id="js-login-form">
+            <div class="row">
+                <label for="username"></label>
                 <input>
-            </label>
-            <label>
+            </div>
+            <div class="row">
+                <label for="password"></label>
                 <input>
-            </label>
+                
+            </div>
         </form>
+        
+        <p id="js-error-message" class="error-message"></p>
     </div>
     <a href="/dashboard">Login</a>
 

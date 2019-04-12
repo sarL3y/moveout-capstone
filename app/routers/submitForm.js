@@ -43,33 +43,3 @@ router.post('/', jsonParser, (req, res) => {
   });
 
 module.exports = router;
-
-  // User
-    //     .findOne({ name: req.body.name })
-    //     .then(user => {
-    //         if (user) {
-    //             const message = `Request with this name has already been created`;
-    //             console.error(message);
-    //             return res.status(400).send(message);
-    //         }
-    //         else {
-    //             User
-    //                 .create({
-    //                     firstName: req.body.firstName,
-    //                     lastName: req.body.lastName
-    //                 })
-    //                 .then(user => res.status(201).json({
-    //                     _id: user.id,
-    //                     name: `${user.firstName} ${user.lastName}`,
-    //                 }))
-    //                 .catch(err => {
-    //                     console.error(err);
-    //                     res.status(500).json({ error: 'Couldn\'t create user' });
-    //                 });
-    //             }
-    //     })
-    //     .catch(err => {
-    //         console.error(err);
-    //         res.status(500).json({ error: 'Couldn\'t .findOne' });
-    //     });
-

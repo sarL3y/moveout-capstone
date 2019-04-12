@@ -14,7 +14,6 @@ const router = express.Router();
 const User = require('../models/user');
 
 const localAuth = passport.authenticate('local', { session: false });
-const jwtAuth = passport.authenticate('jwt', { session: false });
 
 const createAuthToken = user => {
     return jwt.sign({user}, database.JWT_SECRET, {
@@ -27,7 +26,6 @@ const createAuthToken = user => {
 router.post('/', jsonParser, localAuth, function(req, res) {
     const authToken = createAuthToken(req.user.serialize());
     res.json({authToken});
-    res.render('/dashboard');
 });
 
 module.exports = router ;

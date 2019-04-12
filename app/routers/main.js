@@ -1,6 +1,9 @@
 'use strict';
 
-const User = require('../models/user');
+const passport = require('passport');
+
+const localAuth = passport.authenticate('local', { session: false });
+const jwtAuth = passport.authenticate('jwt', { session: false });
 
 module.exports = function(app, passport) {
 
@@ -15,4 +18,8 @@ module.exports = function(app, passport) {
     app.get('/submit', function(req, res) {
         res.render('pages/submit');
     });
+
+    app.get('/dashboard', localAuth, function(req, res) {
+        res.render('pages/dashboard');
+    })
 };

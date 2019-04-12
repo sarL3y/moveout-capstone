@@ -82,9 +82,10 @@ router.post('/', jsonParser, (req, res) => {
         });
     }
 
-    let { username, password = ''} = req.body;
+    let { username, password } = req.body;
 
-    return User.find({ username })
+    return User
+        .find({ username })
         .count()
         .then(count => {
             if (count > 0) {
@@ -113,7 +114,7 @@ router.post('/', jsonParser, (req, res) => {
             }
             res.status(500).json({
                 code: 500,
-                message: 'Internal server error'});
+                message: 'Internal server error while creating User'});
         });
 });
 
