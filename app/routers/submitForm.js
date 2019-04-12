@@ -9,7 +9,6 @@ const { Form } = require('../models/form');
 // POST
 router.post('/', jsonParser, (req, res) => {
     const requiredFields = ['firstName', 'lastName', 'email', 'phone'];
-    console.log(req.body);
 
     for (let i = 0; i < requiredFields.length; i++) {
       const field = requiredFields[i];

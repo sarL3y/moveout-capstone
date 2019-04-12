@@ -5,12 +5,13 @@ const { Strategy: LocalStrategy } = require('passport-local');
 const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
 
 const { User } = require('../app/models/user');
-const JWT_SECRET = require('./database');
+const { JWT_SECRET } = require('./database');
 
 const localStrategy = new LocalStrategy((username, password, done) => {
     let user;
 
-    User.findOne({ username: username })
+    User
+        .findOne({ username: username })
         .then(_user => {
             user = _user;
 
@@ -41,7 +42,7 @@ const localStrategy = new LocalStrategy((username, password, done) => {
 
 const jwtStrategy = new JwtStrategy(
     {
-        secretOrKey: JWT_SECRET,
+        secretOrKey: { JWT_SECRET },
         jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
         algorithms: ['HS256']
     },

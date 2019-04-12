@@ -11,9 +11,9 @@ const bodyParser = require('body-parser');
 const submitForm = require('./app/routers/submitForm');
 const getForms = require('./app/routers/getForms');
 const auth = require('./app/routers/auth');
+const users = require('./app/routers/users');
 
 const { DATABASE_URL, PORT } = require('./config/database');
-
 const { localStrategy, jwtStrategy } = require('./config/passport');
 
 app.use(morgan('dev'));
@@ -29,6 +29,7 @@ app.set('view engine', 'ejs');
 app.use('/submitForm', submitForm);
 app.use('/formsList', getForms);
 app.use('/login', auth);
+app.use('/users', users);
 
 require('./app/routers/main.js')(app, passport);
 
