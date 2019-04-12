@@ -7,24 +7,28 @@ const passport = require('passport');
 
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 
 const submitForm = require('./app/routers/submitForm');
 const getForms = require('./app/routers/getForms');
+const auth = require('./app/routers/auth');
 
 const { DATABASE_URL, PORT } = require('./config/database');
 
-
+const { localStrategy, jwtStrategy } = require('./config/passport');
 
 app.use(morgan('dev'));
 
 app.use(express.static('public'));
 app.use(bodyParser());
 
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
 app.set('view engine', 'ejs');
 
 app.use('/submitForm', submitForm);
 app.use('/formsList', getForms);
+app.use('/login', auth);
 
 require('./app/routers/main.js')(app, passport);
 
