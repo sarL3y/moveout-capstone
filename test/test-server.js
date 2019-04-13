@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
+require('dotenv').config();
+
 const expect = chai.expect;
 
 const { app, runServer, closeServer } = require('../server');

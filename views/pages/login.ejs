@@ -5,18 +5,17 @@
     <div class="login-form-container">
         <form action="/login" method="post" id="js-login-form">
             <div class="row">
-                <label for="username"></label>
-                <input>
+                <label for="username" class="label-hidden">Username</label>
+                <input type="text" name="username" placeholder="Username">
             </div>
             <div class="row">
-                <label for="password"></label>
-                <input>
-                
+                <label for="password" class="label-hidden">Password</label>
+                <input type="password" name="password" placeholder="Password">
             </div>
+            <input type="submit" class="form-input btn" value="Login" role="button">
         </form>
         
         <p id="js-error-message" class="error-message"></p>
     </div>
-    <a href="/dashboard">Login</a>
 
 <% include ../partials/footer %>

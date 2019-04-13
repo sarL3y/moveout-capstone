@@ -19,7 +19,7 @@ module.exports = function(app, passport) {
         res.render('pages/submit');
     });
 
-    app.get('/dashboard', localAuth, function(req, res) {
-        res.render('pages/dashboard');
-    })
+    // app.get('/dashboard', jwtAuth, function(req, res) {
+    //     res.render('pages/dashboard');
+    // })
 };

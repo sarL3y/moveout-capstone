@@ -43,7 +43,6 @@ mongoose.Promise = global.Promise;
 let server;
 
 function runServer(databaseUrl, port = PORT) {
-
     return new Promise((resolve, reject) => {
         mongoose.connect(databaseUrl, err => {
             if (err) {
@@ -64,7 +63,6 @@ function runServer(databaseUrl, port = PORT) {
 };
 
 function closeServer() {
-
     return mongoose.disconnect().then(() => {
         return new Promise((resolve, reject) => {
             console.log('Closing server');

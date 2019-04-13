@@ -1,9 +1,9 @@
 'use strict';
 
 function getForms() {
-    const DATA = '/formsList';
+    const FORMS = '/formsList';
 
-    fetch(DATA)
+    fetch(FORMS)
         .then(res => {
             if (res.ok) {
                 return res.json();
@@ -13,7 +13,7 @@ function getForms() {
         .then(resJson => displayForms(resJson))
 
         .catch(err => {
-            $('#results-list').text(`Oops something went wrong ${err.message}`);
+            $('#results-list').text(`Oops something went wrong while returning results. ${err.message}.`);
         });
 };
 
