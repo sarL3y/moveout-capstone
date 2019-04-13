@@ -2,43 +2,50 @@
 
 <h2>Submit form page</h2>
 
-<div class="submit-form-container">
-    <form action="/submitForm" method="post" id="js-form" class="search-form">
-        <div class="row">
-            <label for="firstName" class="label-hidden">First Name</label>
-            <input type="text" name="firstName" placeholder="First Name" role="combobox" required>
-        </div>
-        <div class="row">
-            <label for="lastName" class="label-hidden">Last Name</label>
-            <input type="text" name="lastName" placeholder="Last Name" role="combobox" required>
-        </div>
-        <div class="row">
-            <label for="email" class="label-hidden">Email</label>
-            <input type="email" name="email" placeholder="Email" role="combobox" required>
-        </div>
-        <div class="row">
-            <label for="phone" class="label-hidden">Phone</label>
-            <input type="text" name="phone" placeholder="Phone Number" role="combobox" required>
-        </div>
-        <div class="row">
-            <label for="address" class="label-hidden">Address</label>
-            <input type="text" name="address" placeholder="Address" role="combobox">
-        </div>
-        <div class="row">
-                <label for="monthlyRent" class="label-hidden">Monthly Rent</label>
-                <input type="text" name="monthlyRent" placeholder="Monthly Rent" role="combobox">
-            </div>
-        <div class="row">
-            <label for="leaseRemainder" class="label-hidden">Lease Remainder</label>
-            <input type="text" name="leaseRemainder" placeholder="Lease Remainder" role="combobox">
-        </div>
-        <div class="row">
-            <label for="comments" class="label-hidden">Comments</label>
-            <input type="text" name="comments" placeholder="Comments" role="combobox">
-        </div>
+<div class="container">
+    <h3 class="center-align form-header">Request Form</h3>
 
-        <input type="submit" class="form-input btn" value="Submit" role="button">
-    </form>
+    <p class="center-align form-p">Tell us a little about yourself so we can help you MoveOut</p>
+
+    <div class="submit-form-container">
+        <form action="/submitForm" method="post" id="js-form" class="submit-form">
+            <div class="row">
+                <label for="firstName" class="label-hidden">First Name</label>
+                <input type="text" name="firstName" placeholder="First Name" required>
+            </div>
+            <div class="row">
+                <label for="lastName" class="label-hidden">Last Name</label>
+                <input type="text" name="lastName" placeholder="Last Name" required>
+            </div>
+            <div class="row">
+                <label for="email" class="label-hidden">Email</label>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="row">
+                <label for="phone" class="label-hidden">Phone</label>
+                <input type="text" name="phone" placeholder="Phone Number" required>
+            </div>
+            <div class="row">
+                <label for="address" class="label-hidden">Address</label>
+                <input type="text" name="address" placeholder="Address">
+            </div>
+            <div class="row">
+                    <label for="monthlyRent" class="label-hidden">Monthly Rent</label>
+                    <input type="text" name="monthlyRent" placeholder="Monthly Rent">
+                </div>
+            <div class="row">
+                <label for="leaseRemainder" class="label-hidden">Lease Remainder</label>
+                <input type="text" name="leaseRemainder" placeholder="Lease Remainder">
+            </div>
+            <div class="row">
+                <label for="comments" class="label-hidden">Comments</label>
+                <input type="text" name="comments" placeholder="Comments">
+            </div>
+            <div class="row">
+                <input type="submit" class="form-input btn" value="SUBMIT" role="button">
+            </div>
+        </form>
+    </div>
 </div>
 
 <p id="js-error-message" class="error-message"></p>
