@@ -14,7 +14,9 @@ nav a {
 .wallpaper {
 	background-image: url(https://images.unsplash.com/photo-1517164919194-ab4eed1f05c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
 	background-size: cover;
-	background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 	height: 100%;
 	width: 100%;
 	left: 0;
@@ -33,10 +35,48 @@ nav a {
 	padding: 0; 
 }
 
-.header-container {
-	margin-top: 20%;
+.reviews {
+	height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    overflow: hidden;
 }
 
+.reviews-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 10% auto 0 auto;
+    padding: 10px;
+}
+
+.review {
+    background: #ffffff;
+    flex: 1;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
+    padding: 20px;
+    width: 30%;
+    margin: 2%;
+}
+
+.reviews-header {
+    margin: 10% auto 0 auto;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+}
+
+.header-container {
+	margin-top: 50%;
+}
+
+.border {
+    margin: 5% auto 0 auto;
+    width: 80%;
+    border-bottom: 2px solid lightyellow;
+}
 h1 {
     font-size: 3em;
 }
