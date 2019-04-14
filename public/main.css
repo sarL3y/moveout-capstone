@@ -5,6 +5,7 @@ font-family: 'Roboto', Arial, sans-serif;
 
 body {
     background: #1a237e;
+    font-size: 1em;
 }
 
 nav a {
@@ -12,13 +13,13 @@ nav a {
 }
 
 .wallpaper {
-	background-image: url(https://images.unsplash.com/photo-1517164919194-ab4eed1f05c2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1352&q=80);
+	background-image: url('../img/sylvie-tittel-726554-unsplash.jpg');
 	background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-	height: 100%;
-	width: 100%;
+	height: 100vh;
+	width: 100vw;
 	left: 0;
 	top: 0;
 	overflow: hidden;
@@ -27,12 +28,42 @@ nav a {
 }
 
 .container {
-	background: #ffffff;
-	border-radius: 10px;
-	box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
-    width: 30em;
-    margin: 0 auto;
-	padding: 0; 
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 0;
+    margin-left: 5%;
+}
+
+.header-container {
+    color: darkblue;
+    flex: 6;
+}
+
+.sub-header-container {
+    color: darkblue;
+    flex: 1;
+}
+
+h1 {
+    font-size: 5em;
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 2em;
+    max-width: 400px;
+    margin: 0;
+}
+
+.bigger-h2 {
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 2%;
+}
+
+.get-started-btn {
+   flex: 2;
 }
 
 .reviews {
@@ -47,18 +78,28 @@ nav a {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 10% auto 0 auto;
+    margin: 5% auto 0 auto;
     padding: 10px;
 }
 
 .review {
     background: #ffffff;
-    flex: 1;
     border-radius: 10px;
     box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
-    padding: 20px;
-    width: 30%;
-    margin: 2%;
+    padding: 30px;
+    width: 25%;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 0;
+    color: #000051;
+}
+
+.date {
+    margin-top: 0;
+    color: darkorange;
 }
 
 .reviews-header {
@@ -68,17 +109,10 @@ nav a {
     color: white;
 }
 
-.header-container {
-	margin-top: 50%;
-}
-
 .border {
     margin: 5% auto 0 auto;
     width: 80%;
     border-bottom: 2px solid lightyellow;
-}
-h1 {
-    font-size: 3em;
 }
 
 .form-header {
@@ -95,13 +129,37 @@ a {
 }
 
 .btn {
-    width: 140px;
-    background-color: rgb(31, 94, 196);
+    width: auto;
+    background-color: darkblue;
     color: white;
+    font-size: 16px;
+    font-weight: bold;
     padding: 15px 30px 15px 30px;
     border: none;
     border-radius: 5px;
     box-shadow: 0 3px 1px 0 rgba(0,0,0,0.1);
+}
+
+.inverse {
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+}
+
+.inverse-btn {
+    background-color: white;
+    color: darkblue;
+    font-size: 16px;
+    font-weight: bold;
+    width: auto;
+    padding: 15px 30px 15px 30px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 3px 1px 0 rgba(0,0,0,0.1);
+}
+
+input[type=submit].inverse-btn:hover {
+    background-color: lightgray;
 }
 
 .forms-list-container {
@@ -128,6 +186,8 @@ a {
     padding: 50px;
     background: white;
     border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .row {
@@ -173,7 +233,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 }
 
 input[type=submit]:focus {
-    border: 0;
+    border: 0; 
 }
 
 input::placeholder {
@@ -192,6 +252,7 @@ input::placeholder:focus {
 
 input[type=submit]:hover {
     cursor: pointer;
+    background-color: #1a237e;
 }
 
 p {
@@ -203,6 +264,7 @@ p {
 }
 
 footer {
+    display: none;
     position: fixed;
     bottom: 0;
     margin: 0 auto;
