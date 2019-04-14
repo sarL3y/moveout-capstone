@@ -19,6 +19,9 @@ nav a {
     -o-background-size: cover;
 	background-size: cover;
     background-repeat: no-repeat;
+    -webkit-background-attachment: fixed;
+    -moz-background-attachment: fixed;
+    -o-background-attachment: fixed;
     background-attachment: fixed;
     background-position: center;
 	height: 100vh;
@@ -204,28 +207,11 @@ a {
     box-shadow: 0 3px 1px 0 rgba(0,0,0,0.1);
 }
 
-.inverse {
+.center-btn {
     display: flex;
     flex: 1;
     justify-content: center;
-    margin-top: 3vh;
-}
-
-.inverse-btn {
-    appearance: none;
-    -o-appearance: none;
-	-ms-appearance: none;
-	-moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: #2B2C8C;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    width: auto;
-    padding: 15px 30px 15px 30px;
-    border: none;
-    border-radius: 5px;
-    box-shadow: 0 3px 1px 0 rgba(0,0,0,0.1);
+    margin: 2vh auto;
 }
 
 input[type=submit].inverse-btn:hover {
@@ -269,6 +255,9 @@ input[type=submit].inverse-btn:hover {
 
 .submit-form-about {
     flex: 2;
+    border-right: 1px solid #2B2C8C;
+    padding-right: 20px;
+    margin-right: 20px;
 }
 
 .row {
@@ -278,6 +267,7 @@ input[type=submit].inverse-btn:hover {
 
 .row input {
     flex: 1;
+    margin: 2px 10px 2px 10px;
 }
 
 .label-hidden {
@@ -299,7 +289,7 @@ input[type=text], input[type=email], input[type=password], textarea {
     border: none;
     border-bottom: 1px solid lightgray; 
     font-size: 1.15em;
-    padding: 2px; 
+    padding: 5px; 
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus {
@@ -308,8 +298,9 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 	-ms-appearance: none;
 	-moz-appearance: none;
     -webkit-appearance: none;
+    outline: none;
     border: none;
-    border-bottom: 1px solid blue;
+    border-bottom: 2px solid #2B2C8C;
     background: #f5f5f5;
 }
 
@@ -328,12 +319,12 @@ input::placeholder:focus {
 	-moz-appearance: none;
     -webkit-appearance: none;
     border: none;
-    border-bottom: 1px solid blue;
+    border-bottom: 1px solid #2B2C8C;
 }
 
 input[type=submit]:hover {
     cursor: pointer;
-    background-color: #8A5D8A;
+    background-color: #000051;
 }
 
 p {
