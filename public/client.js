@@ -43,4 +43,11 @@ function getAndDisplay() {
     });
 };
 
+function watchFormClick() {
+    $('.form-info').on('click', event => {
+        let formItem = $(event.currentTarget).data('info');
+        $();
+    });
+};
+
 $(getAndDisplay);

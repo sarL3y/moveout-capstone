@@ -1,18 +1,51 @@
 <% include ../partials/header %>
 
+<div class="dashboard-header-container">
     <h2>Dashboard</h2>
-    <h3>Checkout all these forms</h3>
+    <h3>You have <span class="jobs-count">3</span> requests.</h3>
+</div>  
 
-    <form action="/formsList" method="get" id="js-show-forms">
-        <input type="submit" value="Show Forms" />
-    </form>
+<form action="/formsList" method="get" id="js-show-forms">
+    <input type="submit" class="form-input btn" value="Show Forms">
+</form>
 
-    <section>
-        <div class="forms-list-container">
-            <ul id="results-list">
-            <!-- FILL WITH FORM RESULTS -->
-            </ul>
-        </div>
-    </section>
+<section>
+    <div class="forms-list-container">
+        <ul class="forms-list">
+        <!-- FILL WITH FORM RESULTS -->
+            <li>
+                <div class="form-item">
+                    <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+                    <span class="form-icons">EDIT</span>
+                    <span class="form-icons">DELETE</span>
+                        <div class="form-info data-info=${i} hidden">
+                            <div class="form-info-item">
+                                <p>${newResults[i].email}</p>
+                                <p>${newResults[i].phone}</p>
+                                <p>${newResults[i].address}</p>
+                                <p>${newResults[i].monthlyRent}</p>
+                                <p>${newResults[i].leaseRemainder}</p>
+                                <p>${newResults[i].comments}</p>
+                            </div>
+                        </div>
+                </div>
+            </li>
+            <li>
+                <div class="form-item">
+                    <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+                    <span class="form-icons">EDIT</span>
+                    <span class="form-icons">DELETE</span>
+                </div>
+            </li>
+            <li>
+                <div class="form-item">
+                    <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+                    <span class="form-icons">EDIT</span>
+                    <span class="form-icons">DELETE</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
 
 <% include ../partials/footer %>
