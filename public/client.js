@@ -20,18 +20,33 @@ function getForms() {
 function displayForms(newResults) {
     console.log(newResults);
 
-    $('#results-list').empty();
+    $('.forms-list').empty();
     $('#js-error-message').empty();
+    $('.jobs-count').append(
+        `${newResults.length}`
+    );
 
     for (let i = 0; i < newResults.length; i++) {
         console.log(newResults.forms);
 
-        $('#results-list').append(
-            `<li role="listitem">
-					<div class="form-item">
-						<p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
-					</div>
-                </li>`
+        $('.forms-list').append(
+            `<li>
+            <div class="form-item">
+                <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+                <span class="form-icons">EDIT</span>
+                <span class="form-icons">DELETE</span>
+                    <div class="form-info data-info=${i} hidden">
+                        <div class="form-info-item">
+                            <p>${newResults[i].email}</p>
+                            <p>${newResults[i].phone}</p>
+                            <p>${newResults[i].address}</p>
+                            <p>${newResults[i].monthlyRent}</p>
+                            <p>${newResults[i].leaseRemainder}</p>
+                            <p>${newResults[i].comments}</p>
+                        </div>
+                    </div>
+            </div>
+        </li>`
         );
     }
 };

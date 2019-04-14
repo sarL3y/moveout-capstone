@@ -1,23 +1,31 @@
 <% include ../partials/header %>
 
-    <h2>Login Here</h2>
+<nav role="nav">
+    <a href="/"><h4>MoveOut</h1></a>
+</nav>
 
-        <div class="login-form-container">
-            <h3><span></span></h3>
+<div class="login-form-container">
+    <div class="login-form-about">
+        <h4 class="form-header">Login Here</h2>
 
-            <form action="/login" method="post" id="js-login-form">
-                <div class="row">
-                    <label for="username" class="label-hidden">Username</label>
-                    <input type="text" name="username" placeholder="Username">
-                </div>
-                <div class="row">
-                    <label for="password" class="label-hidden">Password</label>
-                    <input type="password" name="password" placeholder="Password">
-                </div>
-                <input type="submit" class="form-input btn" value="LOGIN" role="button">
-            </form>
-            
-            <p id="js-error-message" class="error-message"></p>
+        <h5 class="form-header-small">and see what's happening</h3>
+    </div>
+
+    <form action="/login" method="post" id="js-login-form" class="login-form">
+        <div class="row">
+            <label for="username" class="label-hidden">Username</label>
+            <input type="text" name="username" placeholder="Username">
         </div>
+        <div class="row">
+            <label for="password" class="label-hidden">Password</label>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div class="row">
+            <input type="submit" class="form-input btn" value="LOGIN" role="button">
+        </div>
+    </form>
+    
+    <p id="js-error-message" class="error-message"></p>
+</div>
 
 <% include ../partials/footer %>

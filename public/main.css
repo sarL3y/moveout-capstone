@@ -8,6 +8,13 @@ body {
     font-size: 1em;
 }
 
+nav {
+    position: absolute;
+    width: 100%;
+    top: 10px;
+    left: 10px;
+}
+
 nav a {
     color: #F3F3F5;
 }
@@ -44,11 +51,22 @@ nav a {
 .header-container {
     color: #2B2C8C;
     flex: 6;
+    margin-top: 2vh;
 }
 
 .sub-header-container {
     color: #2B2C8C;
     flex: 2;
+}
+
+.dashboard-container {
+    display: flex;
+    padding: 25px;
+    background: white;
+    border-radius: 10px;
+    width: 80vw;
+    margin: 10vh auto;
+    color: #2B2C8C;
 }
 
 .dashboard-header-container {
@@ -101,11 +119,11 @@ h2 {
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.1), 0 8px 24px 0 rgba(0,0,0,0.2);
     padding: 30px;
     width: 25%;
+    color: #2B2C8C;
 }
 
 h4 {
     font-size: 1.5em;
-    font-style: italic;
     margin: 0;
     color: #000051;
 }
@@ -130,7 +148,7 @@ h4 {
     padding: 10px;
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 2px 0 rgba(0,0,0,0.1), 0 2px 2px 0 rgba(190, 149, 149, 0.2);
     margin: 0 auto 0 auto;
     width: auto;
 }
@@ -143,8 +161,9 @@ h4 {
     list-style-type: decimal;
     list-style-position: inside;
     margin: 0;
+    max-height: 175px;
     padding: 0 30px 0 30px;
-    font-size: 140px;
+    font-size: 120px;
     font-weight: 100;
     color: #e8eaf6;
 }
@@ -163,7 +182,7 @@ h4 {
     font-weight: bold;
     font-size: 20px;
     position: relative;
-    top: -70px;
+    top: -100px;
     left: 10px;
 }
 
@@ -180,8 +199,8 @@ h4 {
     border-right: 2px solid #8A5D8A;
 }
 
-.form-header {
-    margin-top: 5%;
+.italic {
+    font-style: italic;
 }
 
 a {
@@ -264,10 +283,28 @@ input[type=submit].inverse-btn:hover {
 .login-form-container {
     display: flex;
     justify-content: center;
-    text-align: center;
+    width: 40vw;
+    margin: 10vh auto;
     padding: 50px;
     background: white;
     border-radius: 10px;
+}
+
+.login-form-about {
+    flex: 1;
+    flex-direction: column;
+    border-right: 1px solid #2B2C8C;
+    padding-right: 20px;
+    margin: auto;
+    margin-right: 20px;
+    font-style: normal;
+    font-size: 48;
+    text-align: right;
+    color: #2B2C8C;
+}
+
+.login-form {
+    flex: 3;
 }
 
 .submit-form-container {
@@ -276,7 +313,28 @@ input[type=submit].inverse-btn:hover {
     background: white;
     border-radius: 10px;
     width: 60vw;
-    margin: 0 auto;
+    margin: 10vh auto;
+    color: #2B2C8C;
+}
+
+.form-header {
+    margin-top: 3vh;
+    font-size: 40px;
+    font-weight: bold;
+    line-height: -5%;
+}
+
+.form-header-small {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 0;
+    
+}
+
+.form-header-smaller {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 0;
 }
 
 .submit-form {
@@ -285,9 +343,14 @@ input[type=submit].inverse-btn:hover {
 
 .submit-form-about {
     flex: 2;
+    flex-direction: column;
     border-right: 1px solid #2B2C8C;
     padding-right: 20px;
+    margin: auto;
     margin-right: 20px;
+    font-style: normal;
+    font-size: 48;
+    text-align: right;
 }
 
 .row {
@@ -386,4 +449,110 @@ footer a {
     color: white;
 }
 
+@media only screen and (max-device-width: 600px) {
+    nav a {
+        font-size: 12px;
+    }
 
+    .submit-form-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 25px;
+        background: white;
+        border-radius: 5px;
+        width: 100%;
+        margin: 0;
+        margin-top: 8vh;
+        color: #2B2C8C;
+    }
+
+    .submit-form {
+        width: auto;
+        padding: 10px;
+        margin: 0 10px;
+    }
+    
+    .submit-form-about {
+        flex-direction: column;
+        border-right: 1px solid #2B2C8C;
+        padding-right: 20px;
+        margin: auto;
+        margin-right: 20px;
+        font-style: normal;
+        text-align: right;
+    }
+
+    .row {
+        display: flex;
+        width: auto;
+        padding: 20px 0px;
+    }
+
+    input[type=text], input[type=email], input[type=password], textarea {
+        font-size: 14px;
+    }
+
+    .reviews {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        top: 100%;
+        height: 100%;
+        width: 100%;
+    }
+
+    .reviews-header {
+        margin-top: 9vh;
+        font-size: 30px;
+    }
+
+    .reviews-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 2vh;
+        padding: 10px;
+    }
+
+    .review {
+        padding: 20px;
+        color: #2B2C8C;
+        width: 100%;
+        margin-top: 2vh;
+    }
+
+    .jobs-container {
+        display: flex;
+        flex: initial;
+        flex-direction: initial;
+        justify-content: center;
+        padding: 10px;
+        height: 100%;
+        width: auto;
+    }
+
+    .jobs-list {
+        flex-direction: column;
+        justify-content: initial;
+        align-items: center;
+        list-style-type: decimal;
+        list-style-position: inside;
+        padding: 0 30px 0 30px;
+        font-size: 60px;
+    }
+
+    .job {
+        padding: 20px;
+        margin-top: 2vh;
+    }
+
+    .job-span {
+        top: -30px;
+        left: 30px;
+    }
+
+}
