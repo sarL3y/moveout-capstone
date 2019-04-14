@@ -1,19 +1,22 @@
 * {
-box-sizing: border-box;
-font-family: 'Roboto', Arial, sans-serif;
+    box-sizing: border-box;
+    font-family: 'Roboto', Arial, sans-serif;
 }
 
 body {
-    background: #1a237e;
+    background: #e8eaf6;
     font-size: 1em;
 }
 
 nav a {
-    color: white;
+    color: #F3F3F5;
 }
 
 .wallpaper {
-	background-image: url('../img/sylvie-tittel-726554-unsplash.jpg');
+    background-image: url('../img/sylvie-tittel-726554-unsplash.jpg');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
 	background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -36,13 +39,13 @@ nav a {
 }
 
 .header-container {
-    color: darkblue;
+    color: #2B2C8C;
     flex: 6;
 }
 
 .sub-header-container {
-    color: darkblue;
-    flex: 1;
+    color: #2B2C8C;
+    flex: 2;
 }
 
 h1 {
@@ -67,25 +70,29 @@ h2 {
 }
 
 .reviews {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 	height: 100%;
     width: 100%;
     position: absolute;
     top: 100%;
     overflow: hidden;
+    background-color: #e8eaf6;
 }
 
 .reviews-container {
     display: flex;
+    flex: 1;
     justify-content: space-around;
-    flex-wrap: wrap;
-    margin: 5% auto 0 auto;
+    margin: 2vh auto 0 auto;
     padding: 10px;
 }
 
 .review {
     background: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.1), 0 8px 24px 0 rgba(0,0,0,0.2);
     padding: 30px;
     width: 25%;
 }
@@ -99,20 +106,72 @@ h4 {
 
 .date {
     margin-top: 0;
-    color: darkorange;
+    color: #8A5D8A;
 }
 
 .reviews-header {
-    margin: 10% auto 0 auto;
+    flex: 1;
+    margin: 4vh auto 1vh auto;
     text-align: center;
-    font-size: 2em;
-    color: white;
+    font-size: 3em;
+    color: #2B2C8C;
+}
+
+.jobs-container {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    padding: 10px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,0.1), 0 10px 30px 0 rgba(0,0,0,0.2);
+    margin: 0 auto 0 auto;
+    width: auto;
+}
+
+.jobs-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    list-style-type: decimal;
+    list-style-position: inside;
+    margin: 0;
+    padding: 0 30px 0 30px;
+    font-size: 100px;
+    font-weight: 100;
+    color: #e8eaf6;
+}
+
+.job {
+    flex: 1;
+}
+
+.job-span {
+    text-decoration: none;
+    display: block;
+    width: 180px;
+    margin: 0 5x 0 5px;
+    text-align: left;
+    color: #2B2C8C;
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+    top: -70px;
+    left: 10px;
 }
 
 .border {
-    margin: 5% auto 0 auto;
-    width: 80%;
-    border-bottom: 2px solid lightyellow;
+    margin: 3vh auto 0 auto;
+    width: 75%;
+    border-bottom: 2px solid #8A5D8A;
+}
+
+.right-border {
+    margin: 0 40px 0 0;
+    padding-right: 20px;
+    height: 90%;
+    border-right: 2px solid #8A5D8A;
 }
 
 .form-header {
@@ -129,8 +188,13 @@ a {
 }
 
 .btn {
+    appearance: none;
+    -o-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+    -webkit-appearance: none;
     width: auto;
-    background-color: darkblue;
+    background-color: #2B2C8C;
     color: white;
     font-size: 16px;
     font-weight: bold;
@@ -142,13 +206,19 @@ a {
 
 .inverse {
     display: flex;
+    flex: 1;
     justify-content: center;
-    margin-top: 3%;
+    margin-top: 3vh;
 }
 
 .inverse-btn {
-    background-color: white;
-    color: darkblue;
+    appearance: none;
+    -o-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: #2B2C8C;
+    color: white;
     font-size: 16px;
     font-weight: bold;
     width: auto;
@@ -159,7 +229,9 @@ a {
 }
 
 input[type=submit].inverse-btn:hover {
-    background-color: lightgray;
+    background-color: #8A5D8A;
+    padding: 16px 31px 16px 31px;
+    box-shadow: 0 5px 2px 0 rgba(0,0,0,0.1);
 }
 
 .forms-list-container {
@@ -183,11 +255,20 @@ input[type=submit].inverse-btn:hover {
 }
 
 .submit-form-container {
-    padding: 50px;
+    display: flex;
+    padding: 25px;
     background: white;
     border-radius: 10px;
-    width: 80%;
+    width: 60vw;
     margin: 0 auto;
+}
+
+.submit-form {
+    flex: 3;
+}
+
+.submit-form-about {
+    flex: 2;
 }
 
 .row {
@@ -218,7 +299,7 @@ input[type=text], input[type=email], input[type=password], textarea {
     border: none;
     border-bottom: 1px solid lightgray; 
     font-size: 1.15em;
-    padding: 6px; 
+    padding: 2px; 
 }
 
 input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus {
@@ -252,7 +333,7 @@ input::placeholder:focus {
 
 input[type=submit]:hover {
     cursor: pointer;
-    background-color: #1a237e;
+    background-color: #8A5D8A;
 }
 
 p {
@@ -279,3 +360,5 @@ footer p {
 footer a {
     color: white;
 }
+
+
