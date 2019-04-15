@@ -505,8 +505,7 @@ footer a {
     }
 
     .reviews-header {
-        margin-top: 9vh;
-        font-size: 30px;
+        display: none;
     }
 
     .reviews-container {
@@ -514,7 +513,7 @@ footer a {
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        margin-top: 2vh;
+        margin-top: 1vh;
         padding: 10px;
     }
 
@@ -532,6 +531,7 @@ footer a {
         justify-content: center;
         padding: 10px;
         height: 100%;
+        margin-top: 8vh;
         width: auto;
     }
 
@@ -541,18 +541,25 @@ footer a {
         align-items: center;
         list-style-type: decimal;
         list-style-position: inside;
-        padding: 0 30px 0 30px;
-        font-size: 60px;
+        padding: 0 10px 0 10px;
+        font-size: 110px;
+        max-height: initial;
+    }
+
+    .right-border {
+        border-right: 0px;
     }
 
     .job {
-        padding: 20px;
+        padding: 10px;
         margin-top: 2vh;
     }
 
     .job-span {
-        top: -30px;
+        top: -60px;
         left: 30px;
+        font-size: 24px;
+        margin: 0;
     }
 
 }
