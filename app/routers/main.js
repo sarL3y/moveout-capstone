@@ -22,4 +22,8 @@ module.exports = function(app, passport) {
     app.get('/dashboard', function(req, res) {
         res.render('pages/dashboard');
     });
+
+    app.get('/success', function(req, res) {
+        res.render('pages/success');
+    });
 };

@@ -1,10 +1,10 @@
 * {
     box-sizing: border-box;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: Arial, 'Roboto', sans-serif;
 }
 
 body {
-    background: #f1f4ff;
+    background: #fafafa;
     font-size: 1em;
 }
 
@@ -30,7 +30,10 @@ nav a {
     -moz-background-attachment: fixed;
     -o-background-attachment: fixed;
     background-attachment: fixed;
-    background-position: center;
+    -webkit-background-position: center;
+    -moz-background-position: center;
+    -o-background-position: center;
+	background-position: center;
 	height: 100vh;
 	width: 100vw;
 	left: 0;
@@ -123,7 +126,7 @@ h2 {
 }
 
 h4 {
-    font-size: 1.5em;
+    font-size: 1em;
     margin: 0;
     color: #000051;
 }
@@ -131,6 +134,12 @@ h4 {
 .date {
     margin-top: 0;
     color: #8A5D8A;
+    font-size: 12px;
+}
+
+.review-text {
+    font-family: "Roboto";
+    font-weight: 100;
 }
 
 .reviews-header {
@@ -197,10 +206,6 @@ h4 {
     padding-right: 20px;
     height: 90%;
     border-right: 2px solid #8A5D8A;
-}
-
-.italic {
-    font-style: italic;
 }
 
 a {
@@ -280,7 +285,7 @@ a {
     align-self: center;
 }
 
-.login-form-container {
+.login-form-container, .submit-form-container {
     display: flex;
     justify-content: center;
     width: 40vw;
@@ -288,9 +293,16 @@ a {
     padding: 50px;
     background: white;
     border-radius: 10px;
+    color: #2B2C8C;
 }
 
-.login-form-about {
+.submit-form-container {
+    padding: 25px;
+    justify-content: initial;
+    width: 60vw;
+}
+
+.login-form-about, .submit-form-about {
     flex: 1;
     flex-direction: column;
     border-right: 1px solid #2B2C8C;
@@ -303,21 +315,15 @@ a {
     color: #2B2C8C;
 }
 
+.submit-form-about {
+    flex: 2;
+}
+
 .login-form {
     flex: 3;
 }
 
-.submit-form-container {
-    display: flex;
-    padding: 25px;
-    background: white;
-    border-radius: 10px;
-    width: 60vw;
-    margin: 10vh auto;
-    color: #2B2C8C;
-}
-
-.form-header {
+.form-header, .form-header-small, .form-header-smaller {
     margin-top: 3vh;
     font-size: 40px;
     font-weight: bold;
@@ -326,31 +332,16 @@ a {
 
 .form-header-small {
     font-size: 24px;
-    font-weight: bold;
     margin-top: 0;
-    
 }
 
 .form-header-smaller {
     font-size: 16px;
-    font-weight: bold;
     margin-top: 0;
 }
 
 .submit-form {
     flex: 3;
-}
-
-.submit-form-about {
-    flex: 2;
-    flex-direction: column;
-    border-right: 1px solid #2B2C8C;
-    padding-right: 20px;
-    margin: auto;
-    margin-right: 20px;
-    font-style: normal;
-    font-size: 48;
-    text-align: right;
 }
 
 .row {
@@ -449,6 +440,10 @@ footer a {
     color: white;
 }
 
+/* ============================================ */
+/* ===================MOBILE=================== */
+/* ============================================ */
+
 @media only screen and (max-device-width: 900px) {
     nav a {
         font-size: 12px;
@@ -520,7 +515,7 @@ footer a {
     .review {
         padding: 20px;
         color: #2B2C8C;
-        width: 100%;
+        width: 75%;
         margin-top: 2vh;
     }
 
@@ -556,8 +551,8 @@ footer a {
     }
 
     .job-span {
-        top: -60px;
-        left: 30px;
+        top: -40px;
+        left: 0px;
         font-size: 20px;
         margin: 0;
     }

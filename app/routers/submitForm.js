@@ -33,7 +33,8 @@ router.post('/', jsonParser, (req, res) => {
             leaseRemainder: req.body.leaseRemainder,
             created: req.body.created
         })
-        .then(form => res.status(201).json(form))
+        .then(res.status(201))
+        .then(res.redirect('/success'))
         .catch(err => {
             console.error(err);
             res.status(500).json({
