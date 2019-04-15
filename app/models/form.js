@@ -28,10 +28,7 @@ const formSchema = mongoose.Schema({
     },
     monthlyRent: { type: Number },
     comments: { type: String },
-    leaseRemainder: {
-        count: Number,
-        dayOrMonth: String
-    },
+    leaseRemainder: { type: String },
     created: { type: Date, default: Date.now }
 });
 

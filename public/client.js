@@ -22,33 +22,32 @@ function displayForms(newResults) {
 
     $('.forms-list').empty();
     $('#js-error-message').empty();
-    $('.jobs-count').append(
-        `${newResults.length}`
-    );
+    $('.jobs-count').empty();
+    $('.jobs-count').append(`${newResults.length}`);
 
     for (let i = 0; i < newResults.length; i++) {
         console.log(newResults.forms);
 
         $('.forms-list').append(
             `<li>
-            <div class="form-item">
-                <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
-                <span class="form-icons">EDIT</span>
-                <span class="form-icons">DELETE</span>
-                    <div class="form-info data-info=${i} hidden">
-                        <div class="form-info-item">
-                            <p>${newResults[i].email}</p>
-                            <p>${newResults[i].phone}</p>
-                            <p>${newResults[i].address}</p>
-                            <p>${newResults[i].monthlyRent}</p>
-                            <p>${newResults[i].leaseRemainder}</p>
-                            <p>${newResults[i].comments}</p>
-                        </div>
+                <div id="js-form-item" class="form-item" data-info=${i}>
+                    <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+                    <span class="form-icons">EDIT</span>
+                    <span class="form-icons">DELETE</span>
+                </div>
+                <div id="js-form-${i}" class="form-info hidden">
+                    <div class="form-info-items">
+                        <p>${newResults[i].email}</p>
+                        <p>${newResults[i].phone}</p>
+                        <p>${newResults[i].address}</p>
+                        <p>$${newResults[i].monthlyRent}</p>
+                        <p>${newResults[i].leaseRemainder}</p>
+                        <p>${newResults[i].comments}</p>
                     </div>
-            </div>
-        </li>`
+                </div>
+            </li>`
         );
-    }
+    };
 };
 
 function getAndDisplay() {
@@ -59,10 +58,23 @@ function getAndDisplay() {
 };
 
 function watchFormClick() {
-    $('.form-info').on('click', event => {
-        let formItem = $(event.currentTarget).data('info');
-        $();
+    $('.forms-list').on('click', '#js-form-item', event => {
+        console.log('clicking something');
+
+        let formNum = $(event.currentTarget).data('info');
+        console.log(formNum);
+
+        let i = formNum.toString();
+        console.log($(this).find(`#js-form-${i}`))
+
+        if(!$(this).find('#js-form-' + i.replace('"', '')).hasClass('hidden')) {
+            $(this).find('#js-form-' + i.replace('"', '')).addClass('hidden');
+        } else {
+            $(this).find('#js-form-' + i.replace('"', '')).removeClass('hidden');
+        };
     });
 };
 
+
+$(watchFormClick);
 $(getAndDisplay);

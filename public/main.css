@@ -236,12 +236,6 @@ a {
     margin: 2vh auto;
 }
 
-input[type=submit].inverse-btn:hover {
-    background-color: #8A5D8A;
-    padding: 16px 31px 16px 31px;
-    box-shadow: 0 5px 2px 0 rgba(0,0,0,0.1);
-}
-
 .forms-list-container {
     background: white;
     width: 80vw;
@@ -267,8 +261,14 @@ input[type=submit].inverse-btn:hover {
     margin: 5px;
 }
 
+.form-info-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .form-item:hover {
-    background-color: #f6f6ff;
+    background-color: #e1ffdf;
 }
 
 .form-item p {
@@ -449,7 +449,7 @@ footer a {
     color: white;
 }
 
-@media only screen and (max-device-width: 600px) {
+@media only screen and (max-device-width: 900px) {
     nav a {
         font-size: 12px;
     }
@@ -562,4 +562,35 @@ footer a {
         margin: 0;
     }
 
+    .login-form-container {
+        display: flex;
+        width: auto;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 10vh auto;
+        padding: 30px;
+        background: white;
+        border-radius: 10px;
+    }
+
+    .forms-list-container {
+        margin: 0;
+        width: 100vw;
+        padding: 0;
+    }
+
+    .forms-list {
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-item {
+        width: 100%;
+        margin: 0;
+    }
+
+    .form-info-items p {
+        display: block;
+    }
 }
