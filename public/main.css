@@ -446,7 +446,7 @@ footer a {
 
 @media only screen and (max-device-width: 900px) {
     nav a {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .submit-form-container {
