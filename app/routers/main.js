@@ -2,7 +2,12 @@
 
 const passport = require('passport');
 
-const localAuth = passport.authenticate('local', { session: false });
+const localAuth = passport.authenticate('local', { 
+    session: false,
+    successRedirect: '/dashboard', 
+    failureRedirect: '/loginForm'
+});
+
 const jwtAuth = passport.authenticate('jwt', { session: false });
 
 module.exports = function(app, passport) {
@@ -27,3 +32,11 @@ module.exports = function(app, passport) {
         res.render('pages/success');
     });
 };
+
+// function isLoggedIn(req, res, localAuth, next) {
+//     if (req.isAuthenticated(localAuth)) {
+//         next();
+//     } else {
+//         res.render('pages/login');
+//     };
+// };

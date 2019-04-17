@@ -32,6 +32,7 @@ app.set('view engine', 'ejs');
 app.use('/submitForm', submitForm);
 app.use('/formsList', getForms);
 app.use('/login', auth);
+// app.use('/dashboard', auth);
 app.use('/users', users);
 
 require('./app/routers/main.js')(app, passport);

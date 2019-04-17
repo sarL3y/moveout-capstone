@@ -552,7 +552,7 @@ footer a {
 
     .job-span {
         top: -40px;
-        left: 0px;
+        left: -40px;
         font-size: 20px;
         margin: 0;
     }
