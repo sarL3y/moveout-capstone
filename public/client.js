@@ -13,8 +13,24 @@ function getForms() {
         .then(resJson => displayForms(resJson))
 
         .catch(err => {
-            $('#results-list').text(`Oops something went wrong while returning results. ${err.message}.`);
+            $('.forms-list').text(`Oops, something went wrong while returning results. ${err.message}.`);
         });
+};
+
+function sortForms(forms) {
+    if (forms.length > 0) {
+        console.log(forms[0].created);
+
+        let sortedForms = forms.sort(function(a, b) { 
+            let dateA = new Date(a.created);
+            let dateB = new Date(b.created);
+            console.log(dateA, dateB);
+
+            return dateB - dateA;
+        });
+
+        return sortedForms;
+    };
 };
 
 function displayForms(newResults) {
@@ -25,24 +41,27 @@ function displayForms(newResults) {
     $('.jobs-count').empty();
     $('.jobs-count').append(`${newResults.length}`);
 
+    sortForms(newResults);
+    console.log(newResults);
+
     for (let i = 0; i < newResults.length; i++) {
-        console.log(newResults.forms);
 
         $('.forms-list').append(
             `<li>
                 <div id="js-form-item" class="form-item" data-info=${i}>
                     <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
-                    <span class="form-icons">EDIT</span>
-                    <span class="form-icons">DELETE</span>
+                    <button type="button" class="form-icons"><i class="material-icons">edit</i></button>
+                    <button type="button" class="form-icons"><i class="material-icons">delete</i></button>
                 </div>
                 <div id="js-form-${i}" class="form-info hidden">
                     <div class="form-info-items">
-                        <p>${newResults[i].email}</p>
-                        <p>${newResults[i].phone}</p>
-                        <p>${newResults[i].address}</p>
-                        <p>$${newResults[i].monthlyRent}</p>
-                        <p>${newResults[i].leaseRemainder}</p>
-                        <p>${newResults[i].comments}</p>
+                        <p>Email: ${newResults[i].email}</p>
+                        <p>Phone: ${newResults[i].phone}</p>
+                        <p>Address: ${newResults[i].address}</p>
+                        <p>Monthly Rent: ${newResults[i].monthlyRent}</p>
+                        <p>Lease Remainder: ${newResults[i].leaseRemainder}</p>
+                        <p>Comments: ${newResults[i].comments}</p>
+                        <p>Created: ${newResults[i].created}</p>
                     </div>
                 </div>
             </li>`

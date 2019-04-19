@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 
 <nav role="nav">
-    <a href="/"><h4>MoveOut</h1></a>
+    <a href="/"><h4>MoveOut</h4></a>
 </nav>
 
 <div class="dashboard-container">
@@ -10,17 +10,18 @@
         <h3>You have <span class="jobs-count"></span> requests.</h3>
     </div> 
 
-    <form action="/formsList" method="get" id="js-show-forms">
-        <input type="submit" class="form-input btn" value="Show Forms">
+    <form action="/formsList" method="get" id="js-show-forms" class="form-input">
+        <input type="submit" class="btn" value="Show Forms">
     </form>
 </div>
 
-<section>
-    <div class="forms-list-container">
-        <ul class="forms-list">
-        <!-- FILL WITH FORM RESULTS -->
-        </ul>
-    </div>
-</section>
+
+
+<div class="forms-list-container">
+    <ul class="forms-list">
+    <!-- FILL WITH FORM RESULTS -->
+    </ul>
+</div>
+
 
 <% include ../partials/footer %>

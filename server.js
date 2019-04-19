@@ -1,23 +1,23 @@
 'use strict';
 
-const express = require('express');
-const app = express();
+const express   = require('express');
+const app       = express();
 
 require('dotenv').config();
 
 const mongoose = require('mongoose');
 const passport = require('passport');
 
-const morgan = require('morgan');
-const bodyParser = require('body-parser');
+const morgan        = require('morgan');
+const bodyParser    = require('body-parser');
 
-const submitForm = require('./app/routers/submitForm');
-const getForms = require('./app/routers/getForms');
-const auth = require('./app/routers/auth');
-const users = require('./app/routers/users');
+const submitForm    = require('./app/routers/submitForm');
+const getForms      = require('./app/routers/getForms');
+const auth          = require('./app/routers/auth');
+const users         = require('./app/routers/users');
 
-const { DATABASE_URL, PORT } = require('./config/database');
-const { localStrategy, jwtStrategy } = require('./config/passport');
+const { DATABASE_URL, PORT }            = require('./config/database');
+const { localStrategy, jwtStrategy }    = require('./config/passport');
 
 app.use(morgan('dev'));
 

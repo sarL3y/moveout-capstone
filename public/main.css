@@ -67,13 +67,14 @@ nav a {
     padding: 25px;
     background: white;
     border-radius: 10px;
-    width: 80vw;
-    margin: 10vh auto;
+    width: 95vw;
+    margin: 8vh auto;
     color: #2B2C8C;
 }
 
 .dashboard-header-container {
     color: #2B2C8C;
+    align-self: center; 
 }
 
 h1 {
@@ -241,9 +242,14 @@ a {
     margin: 2vh auto;
 }
 
+.form-input {
+    margin-left: auto;
+    align-self: center;
+}
+
 .forms-list-container {
     background: white;
-    width: 80vw;
+    width: 90vw;
     margin: 10vh auto;
     padding: 20px;
     border-radius: 10px;
@@ -262,18 +268,20 @@ a {
     border-radius: 5px;
     background-color: #fbfbfd;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,0.1);
-    padding: 5px;
-    margin: 5px;
+    padding: 10px;
+    margin: 10px;
+    font-weight: bold;
 }
 
 .form-info-items {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .form-item:hover {
-    background-color: #e1ffdf;
+    background-color: #e8eaf6;
 }
 
 .form-item p {
@@ -440,13 +448,52 @@ footer a {
     color: white;
 }
 
+.form-icons {
+    appearance: none;
+    -o-appearance: none;
+	-ms-appearance: none;
+	-moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: #2B2C8C;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 3px 1px 0 rgba(0,0,0,0.1);
+    margin-left: 10px;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+  }
+
 /* ============================================ */
 /* ===================MOBILE=================== */
 /* ============================================ */
 
 @media only screen and (max-device-width: 900px) {
     nav a {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .submit-form-container {
@@ -552,7 +599,7 @@ footer a {
 
     .job-span {
         top: -40px;
-        left: -40px;
+        left: 0px;
         font-size: 20px;
         margin: 0;
     }
@@ -571,7 +618,7 @@ footer a {
 
     .forms-list-container {
         margin: 0;
-        width: 100vw;
+        width: 95vw;
         padding: 0;
     }
 
