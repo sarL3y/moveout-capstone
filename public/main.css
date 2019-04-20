@@ -293,7 +293,7 @@ a {
     align-self: center;
 }
 
-.login-form-container, .submit-form-container {
+.login-form-container, .submit-form-container, .success-form-container {
     display: flex;
     justify-content: center;
     width: 40vw;
@@ -310,7 +310,7 @@ a {
     width: 60vw;
 }
 
-.login-form-about, .submit-form-about {
+.login-form-about, .submit-form-about, .success-form-about {
     flex: 1;
     flex-direction: column;
     border-right: 1px solid #2B2C8C;
@@ -325,6 +325,10 @@ a {
 
 .submit-form-about {
     flex: 2;
+}
+
+.success-form-about {
+    flex: 1;
 }
 
 .login-form {

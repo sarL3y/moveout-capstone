@@ -2,7 +2,6 @@
 
 const express   = require('express');
 const app       = express();
-
 require('dotenv').config();
 
 const mongoose = require('mongoose');
@@ -10,32 +9,34 @@ const passport = require('passport');
 
 const morgan        = require('morgan');
 const bodyParser    = require('body-parser');
+const flash         = require('connect-flash');
+const session       = require('express-session');
 
-const submitForm    = require('./app/routers/submitForm');
-const getForms      = require('./app/routers/getForms');
-const auth          = require('./app/routers/auth');
-const users         = require('./app/routers/users');
+// const submitForm    = require('./app/routers/forms');
+// const getForms      = require('./app/routers/forms');
 
-const { DATABASE_URL, PORT }            = require('./config/database');
-const { localStrategy, jwtStrategy }    = require('./config/passport');
+const users = require('./app/routers/users');
+
+const { DATABASE_URL, PORT } = require('./config/database');
+
+require('./config/passport')(passport);
 
 app.use(morgan('dev'));
+app.use(bodyParser());
+app.use(flash());
+app.use(session({ secret: 'moveoutsessionsecret' }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.static('public'));
-app.use(bodyParser());
-
-passport.use(localStrategy);
-passport.use(jwtStrategy);
 
 app.set('view engine', 'ejs');
 
-app.use('/submitForm', submitForm);
-app.use('/formsList', getForms);
-app.use('/login', auth);
-// app.use('/dashboard', auth);
-app.use('/users', users);
-
 require('./app/routers/main.js')(app, passport);
+require('./app/routers/auth.js')(app, passport);
+require('./app/routers/forms.js')(app, passport);
+
+app.use('/users', users);
 
 mongoose.Promise = global.Promise; 
 

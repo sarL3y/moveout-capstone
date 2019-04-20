@@ -1,48 +1,21 @@
 'use strict';
 
-const express = require('express');
-const passport = require('passport');
+module.exports = function(app, passport) {
 
-const bodyParser = require('body-parser');
-const jsonParser = bodyParser.json();
+    app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect: '/userDashboard',
+        failureRedirect: '/signup',
+        failureFlash: true
+    }));
 
-const jwt = require('jsonwebtoken');
+    app.post('/login', passport.authenticate('local-login', {
+        successRedirect: '/dashboard',
+        failureRedirect: '/loginForm',
+        failureFlash: true
+    }));
 
-const database = require('../../config/database');
-const router = express.Router();
-
-const User = require('../models/user');
-
-const localAuth = passport.authenticate('local', { 
-    // successRedirect: '/dashboard', 
-    // failureRedirect: '/loginForm',
-    session: false 
-});
-
-const createAuthToken = user => {
-    return jwt.sign({user}, database.JWT_SECRET, {
-        subject: user.username,
-        expiresIn: database.JWT_EXPIRY,
-        algorithm: 'HS256'
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
     });
 };
-
-// router.get('/', localAuth, function(req, res) {
-//     res.render('pages/dashboard');
-// })
-
-router.post('/', jsonParser, localAuth, function(req, res) {
-    const authToken = createAuthToken(req.user.serialize());
-    res.render('pages/dashboard');
-    res.json({authToken});
-});
-
-// function isLoggedIn(req, res, next) {
-//     if(req.isAuthenticated) {
-//         res.redirect('dashboard');
-//     } else {
-//         res.redirect('/login');
-//     };
-// };
-
-module.exports = router ;

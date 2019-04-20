@@ -1,54 +1,72 @@
 'use strict';
 
-const { Strategy: LocalStrategy } = require('passport-local');
+const LocalStrategy     = require('passport-local').Strategy;
+const User              = require('../app/models/user');
 
-const { Strategy: JwtStrategy, ExtractJwt } = require('passport-jwt');
+module.exports = function(passport) {
 
-const { User } = require('../app/models/user');
-const { JWT_SECRET } = require('./database');
+    passport.serializeUser(function(user, done) {
+        done(null, user.id);
+    });
 
-const localStrategy = new LocalStrategy((username, password, done) => {
-    let user;
-
-    User
-        .findOne({ username: username })
-        .then(_user => {
-            user = _user;
-
-            if (!user) {
-                return Promise.reject({
-                    reason: 'LoginError',
-                    message: 'Incorrect username or password'
-                });
-            }
-            return user.validatePassword(password);
-        })
-        .then(isValid => {
-            if(!isValid) {
-                return Promise.reject({
-                    reason: 'LoginError',
-                    message: 'Incorrect username or password'
-                });
-            }
-            return done(null, user);
-        })
-        .catch(err => {
-            if (err.reason === 'LoginError') {
-                return done(null, false, err);
-            }
-            return done(err, false);
+    passport.deserializeUser(function(id, done) {
+        User.findById(id, function(err, user) {
+            done(err, user);
         });
-});
+    });
 
-const jwtStrategy = new JwtStrategy(
-    {
-        secretOrKey: { JWT_SECRET },
-        jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
-        algorithms: ['HS256']
+    passport.use('local-login', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
     },
-    (payload, finished) => {
-        finished(null, payload.user);
-    }
-);
+    function(req, username, password, done) {
 
-module.exports = { localStrategy, jwtStrategy };
+            User
+                .findOne({ 'username': username }, function(err, user) {
+                    if (err)
+                        return done(err);
+
+                    if (!user)
+                        return done(null, false, req.flash('loginMessage', 'Incorrect username'));
+
+                    if (!user.validatePassword(password)) 
+                        return done(null, false, req.flash('loginMessage', 'Incorrect password'));
+
+                    return done(null, user);
+                });
+    }));
+
+    passport.use('local-signup', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+    },
+    function(req, username, password, done) {
+        process.nextTick(function() {
+
+            User
+                .findOne({ 'username': username }, function(err, user) {
+                    if (err)
+                        return done(err);
+
+                    if (user) {
+                        return done(null, false, req.flash('signupMessage', 'That username is already taken'));
+
+                    } else {
+                        const newUser = User();
+
+                        newUser.username = username;
+                        newUser.password = newUser.generateHash(password);
+
+                        newUser.save(function(err) {
+                            if (err)
+                                throw err;
+
+                            return done(null, newUser);
+                        });
+                    }
+                });
+        });
+    }));
+};

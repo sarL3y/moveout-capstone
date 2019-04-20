@@ -34,7 +34,6 @@ function sortForms(forms) {
 };
 
 function displayForms(newResults) {
-    console.log(newResults);
 
     $('.forms-list').empty();
     $('#js-error-message').empty();
@@ -42,7 +41,6 @@ function displayForms(newResults) {
     $('.jobs-count').append(`${newResults.length}`);
 
     sortForms(newResults);
-    console.log(newResults);
 
     for (let i = 0; i < newResults.length; i++) {
 
@@ -50,8 +48,8 @@ function displayForms(newResults) {
             `<li>
                 <div id="js-form-item" class="form-item" data-info=${i}>
                     <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
-                    <button type="button" class="form-icons"><i class="material-icons">edit</i></button>
-                    <button type="button" class="form-icons"><i class="material-icons">delete</i></button>
+                    <button type="button" id="js-edit-btn" class="form-icons"><i class="material-icons">edit</i></button>
+                    <button type="button" id="js-delete-btn" class="form-icons"><i class="material-icons">delete</i></button>
                 </div>
                 <div id="js-form-${i}" class="form-info hidden">
                     <div class="form-info-items">
@@ -69,7 +67,7 @@ function displayForms(newResults) {
     };
 };
 
-function getAndDisplay() {
+function getAndDisplayForms() {
     $('#js-show-forms').submit(event => {
         event.preventDefault();
         getForms(displayForms);
@@ -92,8 +90,15 @@ function watchFormClick() {
             $(this).find('#js-form-' + i.replace('"', '')).removeClass('hidden');
         };
     });
+
+    $('.forms-list').on('click', '#js-edit-btn', event => {
+        console.log('Editing form');
+    });
+
+    $('.forms-list').on('click', '#js-delete-btn', event => {
+        console.log('Deleting form');
+    });
 };
 
-
 $(watchFormClick);
-$(getAndDisplay);
+$(getAndDisplayForms);

@@ -1,14 +1,6 @@
 'use strict';
 
-const passport = require('passport');
-
-const localAuth = passport.authenticate('local', { 
-    session: false,
-    successRedirect: '/dashboard', 
-    failureRedirect: '/loginForm'
-});
-
-const jwtAuth = passport.authenticate('jwt', { session: false });
+const User = require('../models/user');
 
 module.exports = function(app, passport) {
 
@@ -24,19 +16,35 @@ module.exports = function(app, passport) {
         res.render('pages/submit');
     });
 
-    app.get('/dashboard', function(req, res) {
-        res.render('pages/dashboard');
+    app.get('/signup', function(req, res) {
+        res.json({ message: 'signup page', user: req.user });
+    });
+
+    app.get('/userDashboard', function(req, res) {
+        res.json({ message: 'userDashboard page', user: req.user });
+    });
+
+    app.get('/dashboard', isLoggedIn, function(req, res) {
+        res.render('pages/dashboard', { user: req.user });
     });
 
     app.get('/success', function(req, res) {
         res.render('pages/success');
     });
+
+    // DELETE GET USERS BEFORE PROD //
+    app.get('/users', function(req, res, err) {
+        User
+            .find()
+            .then(users => res.send(users))
+            .catch(err)
+    });
 };
 
-// function isLoggedIn(req, res, localAuth, next) {
-//     if (req.isAuthenticated(localAuth)) {
-//         next();
-//     } else {
-//         res.render('pages/login');
-//     };
-// };
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated()) {
+        next();
+    } else {
+        res.redirect('/loginForm');
+    };
+};

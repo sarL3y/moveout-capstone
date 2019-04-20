@@ -1,13 +1,30 @@
+'use strict';
+
 const express = require('express');
 const router = express.Router();
-
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 
 const { Form } = require('../models/form');
 
-// POST
-router.post('/', jsonParser, (req, res) => {
+module.exports = function(app, passport) {
+
+    // GET
+    app.get('/formsList', jsonParser, (req, res) => {
+        Form
+            .find()
+            .then(forms => {
+                res.json(forms)
+            })
+            .catch(
+                err => {
+                console.error(err);
+                res.status(500).json({message: 'A /GET Internal server error'});
+            });
+    });
+    
+    // POST
+    app.post('/submitForm', jsonParser, (req, res) => {
     const requiredFields = ['firstName', 'lastName', 'email', 'phone'];
 
     for (let i = 0; i < requiredFields.length; i++) {
@@ -42,5 +59,4 @@ router.post('/', jsonParser, (req, res) => {
             });
         });
   });
-
-module.exports = router;
+};
