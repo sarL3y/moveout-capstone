@@ -653,4 +653,19 @@ footer a {
     .form-info-items p {
         display: block;
     }
+
+    .dashboard-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: left;
+    }
+
+    .dashboard-header-container {
+        align-self: flex-start;
+    }
+
+    .form-input {
+        margin-left: initial;
+        align-self: initial;
+    }
 }
