@@ -278,6 +278,18 @@ a {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 20px;
+}
+
+.items-top, .items-middle, .items-bottom {
+    flex: 1;
+}
+
+.items-bottom {
+    
+}
+.p-bold {
+    font-weight: bold;
 }
 
 .form-item:hover {
@@ -634,6 +646,11 @@ footer a {
     .form-item {
         width: 100%;
         margin: 0;
+    }
+
+    .form-info-items {
+        display: flex;
+        flex-direction: column;
     }
 
     .form-info-items p {

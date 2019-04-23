@@ -45,23 +45,22 @@ function displayForms(newResults) {
             `<li>
                 <div id="js-form-item" class="form-item" data-info=${i}>
                     <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
-                        <button type="button" id="js-edit-btn" data-info=${newResults[i]._id} class="form-icons"><i class="material-icons">edit</i></button>
                         <button type="button" id="js-delete-btn" data-info=${newResults[i]._id} class="form-icons"><i class="material-icons">delete</i></button>
                 </div>
                 <div id="js-form-${i}" class="form-info hidden">
                     <div class="form-info-items">
                         <div class="items-top">
-                            <p>Email: ${newResults[i].email}</p>
-                            <p>Phone: ${newResults[i].phone}</p>
+                            <p><span class="p-bold">Email</span> ${newResults[i].email}</p>
+                            <p><span class="p-bold">Phone</span> ${newResults[i].phone}</p>
                         </div>
                         <div class="items-middle">
-                            <p>Address: ${newResults[i].address}</p>
-                            <p>Monthly Rent: ${newResults[i].monthlyRent}</p>
+                            <p><span class="p-bold">Address</span> ${newResults[i].address}</p>
+                            <p><span class="p-bold">Monthly Rent</span> ${newResults[i].monthlyRent}</p>
                         </div>
                         <div class="items-bottom">
-                        <p>Lease Remainder: ${newResults[i].leaseRemainder}</p>
-                        <p>Comments: ${newResults[i].comments}</p>
-                        <p>Created: ${newResults[i].created}</p>
+                        <p><span class="p-bold">Lease Remainder</span> ${newResults[i].leaseRemainder}</p>
+                        <p><span class="p-bold">Comments</span> ${newResults[i].comments}</p>
+                        <p><span class="p-bold">Created</span> ${newResults[i].created}</p>
                         </div>
                     </div>
                 </div>
@@ -106,8 +105,6 @@ function deleteForm(formId) {
         .catch(err => {
             $('.forms-list').text(`Oops, something went wrong while trying to delete. ${err.message}.`);
         });
-    
-
 }
 
 function watchDeleteBtn() {
@@ -125,23 +122,21 @@ function watchDeleteBtn() {
 
             deleteForm(formToDelete);
 
-            $(event.currentTarget).parent().parent().remove();1
-
-           /* setTimeout(function() {
+            setTimeout(function() {
                 getForms(displayForms);
-            }, 1000);*/
+            }, 2000);
         };
     });
 }
 
-function watchEditBtn() {
-    $('.forms-list').on('click', '#js-edit-btn', event => {
-        event.stopPropagation();
-        console.log('Editing form');
-    });
-}
+// function watchEditBtn() {
+//     $('.forms-list').on('click', '#js-edit-btn', event => {
+//         event.stopPropagation();
+//         console.log('Editing form');
+//     });
+// }
 
-$(watchEditBtn);
+// $(watchEditBtn);
 $(watchDeleteBtn);
 $(watchFormClick);
 $(getAndDisplayForms);

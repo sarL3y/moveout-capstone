@@ -56,7 +56,7 @@ module.exports = function(app, passport) {
             .catch(err => {
                 console.error(err);
                 res.status(500).json({
-                    error: 'Couldn\'t create form? But I don\'t know why'
+                    error: 'Couldn\'t create form. Try again'
                 });
             });
     });
