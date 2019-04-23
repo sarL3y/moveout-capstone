@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
     //     res.json({ message: 'userDashboard page', user: req.user });
     // });
 
-    app.get('/dashboard', /*isLoggedIn,*/ function(req, res) {
+    app.get('/dashboard', isLoggedIn, function(req, res) {
         res.render('pages/dashboard', { user: req.user });
     });
 
