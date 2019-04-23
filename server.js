@@ -12,9 +12,6 @@ const bodyParser    = require('body-parser');
 const flash         = require('connect-flash');
 const session       = require('express-session');
 
-// const submitForm    = require('./app/routers/forms');
-// const getForms      = require('./app/routers/forms');
-
 const users = require('./app/routers/users');
 
 const { DATABASE_URL, PORT } = require('./config/database');

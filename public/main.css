@@ -374,7 +374,7 @@ a {
     display: none;
 }
 
-input[type=text], input[type=email], input[type=password], textarea {
+input[type=text], input[type=email], input[type=password], input[type=number], textarea {
     appearance: none;
     -o-appearance: none;
 	-ms-appearance: none;
