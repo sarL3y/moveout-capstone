@@ -11,25 +11,29 @@ This app is a service site for clients to submit request forms to the company. H
 Users are directed to a landing page:
 
 <h1 align="center">
-  <img src="https://github.com/sarL3y/moveout-capstone/public/img/Homepage.png" alt="Homepage" width="400">
+  <img src="public/img/Dashboard.png" alt="Homepage" width="400">
 </h1>
 
 Users are directed to submit a request form:
 
 <h1 align="center">
-  <img src="https://github.com/sarL3y/moveout-capstone/public/img/SubmitForm.png" alt="Submit Form" width="400">
+  <img src="public/img/SubmitForm.png" alt="Submit Form" width="400">
 </h1>
 
 Company/admin can use <a href="https://moveout-capstone.herokuapp.com/dashboard">Dashboard</a> to login:
 
 <h1 align="center">
-  <img src="https://github.com/sarL3y/moveout-capstone/public/img/LoginPage.png" alt="Login Page" width="400">
+  <img src="public/img/LoginPage.png" alt="Login Page" width="400">
 </h1>
 
 Company can view the dashboard to see submitted requests, with the option to delete:
 
+<h4>Credentials:</h4> 
+Username: moveoutadmin 
+
+Password: moveoutadmin123
 <h1 align="center">
-  <img src="https://github.com/sarL3y/moveout-capstone/public/img/Dashboard.png" alt="Login Page" width="400">
+  <img src="public/img/Dashboard.png" alt="Login Page" width="400">
 </h1>
 
 ### API
