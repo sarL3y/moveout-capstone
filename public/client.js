@@ -50,17 +50,17 @@ function displayForms(newResults) {
                 <div id="js-form-${i}" class="form-info hidden">
                     <div class="form-info-items">
                         <div class="items-top">
-                            <p><span class="p-bold">Email</span> ${newResults[i].email}</p>
-                            <p><span class="p-bold">Phone</span> ${newResults[i].phone}</p>
+                            <p><span class="p-bold">Email:</span> ${newResults[i].email}</p>
+                            <p><span class="p-bold">Phone:</span> ${newResults[i].phone}</p>
                         </div>
                         <div class="items-middle">
-                            <p><span class="p-bold">Address</span> ${newResults[i].address}</p>
-                            <p><span class="p-bold">Monthly Rent</span> ${newResults[i].monthlyRent}</p>
+                            <p><span class="p-bold">Address:</span> ${newResults[i].address}</p>
+                            <p><span class="p-bold">Monthly Rent:</span> ${newResults[i].monthlyRent}</p>
                         </div>
                         <div class="items-bottom">
-                        <p><span class="p-bold">Lease Remainder</span> ${newResults[i].leaseRemainder}</p>
-                        <p><span class="p-bold">Comments</span> ${newResults[i].comments}</p>
-                        <p><span class="p-bold">Created</span> ${newResults[i].created}</p>
+                        <p><span class="p-bold">Lease Remainder:</span> ${newResults[i].leaseRemainder}</p>
+                        <p><span class="p-bold">Comments:</span> ${newResults[i].comments}</p>
+                        <p><span class="p-bold">Created:</span> ${newResults[i].created}</p>
                         </div>
                     </div>
                 </div>

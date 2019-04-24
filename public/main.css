@@ -273,6 +273,10 @@ a {
     font-weight: bold;
 }
 
+.item {
+    font-size: 20px;
+}
+
 .form-info-items {
     display: flex;
     flex-direction: row;
@@ -545,7 +549,7 @@ footer a {
         padding: 20px 0px;
     }
 
-    input[type=text], input[type=email], input[type=password], textarea {
+    input[type=text], input[type=email], input[type=password], input[type=number], textarea {
         font-size: 14px;
     }
 
