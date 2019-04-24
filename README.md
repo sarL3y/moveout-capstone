@@ -32,10 +32,6 @@ Password: moveoutadmin123
 
 Company can view the dashboard to see submitted requests, with the option to delete:
 
-<h4>Credentials:</h4> 
-Username: moveoutadmin 
-
-Password: moveoutadmin123
 <h1 align="center">
   <img src="public/img/Dashboard.png" alt="Login Page" width="600">
 </h1>
