@@ -20,10 +20,6 @@ module.exports = function(app, passport) {
         res.json({ message: 'signup page', user: req.user });
     });
 
-    // app.get('/userDashboard', function(req, res) {
-    //     res.json({ message: 'userDashboard page', user: req.user });
-    // });
-
     app.get('/dashboard', isLoggedIn, function(req, res) {
         res.render('pages/dashboard', { user: req.user });
     });
@@ -31,14 +27,6 @@ module.exports = function(app, passport) {
     app.get('/success', function(req, res) {
         res.render('pages/success');
     });
-
-    // // DELETE GET USERS BEFORE PROD //
-    // app.get('/users', function(req, res, err) {
-    //     User
-    //         .find()
-    //         .then(users => res.send(users))
-    //         .catch(err)
-    // });
 };
 
 function isLoggedIn(req, res, next) {

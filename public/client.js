@@ -115,10 +115,6 @@ function watchDeleteBtn() {
             event.preventDefault();
         } else {
             let formToDelete = $(event.currentTarget).data('info');
-            console.log(formToDelete);
-
-            // let idString = formToDelete.toString();
-            // deleteForm(idString);
 
             deleteForm(formToDelete);
 
@@ -129,14 +125,6 @@ function watchDeleteBtn() {
     });
 }
 
-// function watchEditBtn() {
-//     $('.forms-list').on('click', '#js-edit-btn', event => {
-//         event.stopPropagation();
-//         console.log('Editing form');
-//     });
-// }
-
-// $(watchEditBtn);
 $(watchDeleteBtn);
 $(watchFormClick);
 $(getAndDisplayForms);

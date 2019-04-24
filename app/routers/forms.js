@@ -26,7 +26,7 @@ module.exports = function(app, passport) {
     
     // POST
     app.post('/submitForm', jsonParser, (req, res) => {
-    const requiredFields = ['firstName', 'lastName', 'email', 'phone'];
+    const requiredFields = ['name', 'email', 'phone'];
 
         for (let i = 0; i < requiredFields.length; i++) {
         const field = requiredFields[i];
@@ -38,19 +38,7 @@ module.exports = function(app, passport) {
         }
 
         Form
-            .create({
-                name: {
-                    firstName: req.body.firstName,
-                    lastName: req.body.lastName
-                },
-                email: req.body.email,
-                phone: req.body.phone,
-                address: req.body.address,
-                comments: req.body.comments,
-                monthlyRent: req.body.monthlyRent,
-                leaseRemainder: req.body.leaseRemainder,
-                created: req.body.created
-            })
+            .create(req.body)
             .then(res.status(201))
             .then(res.redirect('/success'))
             .catch(err => {
@@ -61,11 +49,11 @@ module.exports = function(app, passport) {
             });
     });
 
+    // DELETE
     app.delete('/deleteForm/:id', (req, res) => {
 
         Form
             .findByIdAndRemove({ _id: req.params.id })
-            // .then(res.redirect('/dashboard'))
             .then(res.status(204).end())
             .catch(err =>
                 res.status(500).json({

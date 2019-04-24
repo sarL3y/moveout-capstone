@@ -10,7 +10,6 @@ require('dotenv').config();
 const expect = chai.expect;
 
 const { app, runServer, closeServer } = require('../server');
-const { User } = require('../app/models/user');
 const { Form } = require('../app/models/form');
 const { TEST_DATABASE_URL } = require('../config/database');
 
@@ -68,7 +67,7 @@ describe('App tests', function() {
 
     describe('GET endpoint', function() {
         
-        it('should get /formsList data', function() {
+        it('should GET /formsList data', function() {
             let res;
 
             return chai.request(app)
@@ -82,6 +81,20 @@ describe('App tests', function() {
                 })
                 .then(function(count) {
                     expect(res.body).to.have.lengthOf(count);
+                });
+        });
+    });
+
+    describe('POST endpoint', function() {
+
+        it('should POST to /submitForm', function() {
+            const newForm = generateFormData();
+
+            return chai.request(app)
+                .post('/submitForm')
+                .send(newForm)
+                .then(function(res) {
+                    expect(res).to.have.status(200);    
                 });
         });
     });
