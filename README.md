@@ -21,6 +21,9 @@ Users are directed to submit a request form:
 </h1>
 
 Company/admin can use <a href="https://moveout-capstone.herokuapp.com/dashboard">Dashboard</a> to login:
+<h4>Credentials:</h4> 
+Username: moveoutadmin 
+Password: moveoutadmin123)
 
 <h1 align="center">
   <img src="https://github.com/sarL3y/moveout-capstone/public/img/LoginPage.png" alt="Login Page" width="400">
