@@ -5,10 +5,8 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const formSchema = mongoose.Schema({
-    name: {
-        firstName: { type: String, required: true },
-        lastName: { type: String, required: true }
-    },
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
     email: { type: String, required: true },
     phone: { type: Number, required: true },
     address: { type: String },
@@ -21,10 +19,8 @@ const formSchema = mongoose.Schema({
 formSchema.methods.serialize = function() {
     return {
         id: this._id,
-        name: {
-            firstName: this.firstName,
-            lastName: this.lastName
-        },
+        firstName: this.firstName,
+        lastName: this.lastName,
         address: this.address,
         phone: this.phone,
         email: this.email,

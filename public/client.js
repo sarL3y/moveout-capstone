@@ -1,5 +1,53 @@
 'use strict';
 
+/* ----------------------------------*/
+/* ---------NEW POST METHOD----------*/
+/* ----------------------------------*/
+
+function submitForm(form) {
+    const formToSubmit = form;
+    const url = '/submitForm';
+    
+    fetch(url, {
+        method: "POST",
+        body: JSON.stringify(formToSubmit),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+        .then(res => {
+            if (res.ok) {
+                return window.location = '/success';
+            }
+            throw new Error(res.statusText);
+        })
+        .catch(err => {
+            $('#js-error-message').text('Something went wrong while submitting the form.' + err);
+        });
+}
+
+function watchSubmitFormClick() {
+    let formData = {};
+
+    $('#js-form').submit(function(event) {
+        event.preventDefault();
+
+        $(this).serializeArray().map(function(input) {
+            formData[input.name] = input.value;
+        });
+
+        submitForm(formData);
+    });
+}
+
+// $('input[name="'+key+'"]').addClass('error').focus();
+// .error { border: 3px solid red; }
+// $('.error').removeClass('error');
+
+/* ----------------------------------*/
+/* ----------------------------------*/
+/* ----------------------------------*/
+
 function getForms() {
     const FORMS = '/formsList';
 
@@ -44,7 +92,7 @@ function displayForms(newResults) {
         $('.forms-list').append(
             `<li>
                 <div id="js-form-item" class="form-item" data-info=${i}>
-                    <p class="item">${newResults[i].name.firstName} ${newResults[i].name.lastName}</p>
+                    <p class="item">${newResults[i].firstName} ${newResults[i].lastName}</p>
                         <button type="button" id="js-delete-btn" data-info=${newResults[i]._id} class="form-icons"><i class="material-icons">delete</i></button>
                 </div>
                 <div id="js-form-${i}" class="form-info hidden">
@@ -125,6 +173,7 @@ function watchDeleteBtn() {
     });
 }
 
+$(watchSubmitFormClick);
 $(watchDeleteBtn);
 $(watchFormClick);
 $(getAndDisplayForms);

@@ -20,6 +20,7 @@ require('./config/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(bodyParser());
+//app.use(express.json());
 app.use(flash());
 app.use(session({ secret: 'moveoutsessionsecret' }));
 app.use(passport.initialize());
