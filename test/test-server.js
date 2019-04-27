@@ -17,10 +17,8 @@ chai.use(chaiHttp);
 
 function generateFormData() {
     return {
-        name: {
-            firstName: faker.name.firstName(),
-            lastName: faker.name.lastName()
-        },
+        firstName: faker.name.firstName(),
+        lastName: faker.name.lastName(),
         email: faker.internet.email(),
         phone: faker.random.number(),
         address: faker.address.streetAddress(),
@@ -94,7 +92,7 @@ describe('App tests', function() {
                 .post('/submitForm')
                 .send(newForm)
                 .then(function(res) {
-                    expect(res).to.have.status(200);    
+                    expect(res).to.have.status(201);    
                 });
         });
     });
