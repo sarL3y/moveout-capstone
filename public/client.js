@@ -39,12 +39,18 @@ function watchSubmitFormClick() {
         let pass = true;
     
         Object.keys(formData).forEach(key => {
-            if( formData[key].trim() == "" ) {
+            if ( formData[key].trim() == "" ) {
                 pass = false;
                 $('#js-error-message').text('Fill out all the fields!');
+            } else if ( formData.address.length < 5 ) {
+                pass = false;
+                $('#js-error-message').text('Please enter a real address.');
+            } else if ( formData.comments.length < 3 ) {
+                pass = false;
+                $('#js-error-message').text('Leave us a comment!');
             }
-        });            
-        
+        });
+
         if ( pass === true ) {
             submitForm(formData);
             window.location = '/success';
