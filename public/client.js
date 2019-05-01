@@ -42,12 +42,15 @@ function watchSubmitFormClick() {
             if ( formData[key].trim() == "" ) {
                 pass = false;
                 $('#js-error-message').text('Fill out all the fields!');
-            } else if ( formData.address.length < 5 ) {
+            } else if ( formData.address.length < 6 ) {
                 pass = false;
                 $('#js-error-message').text('Please enter a real address.');
             } else if ( formData.comments.length < 3 ) {
                 pass = false;
                 $('#js-error-message').text('Leave us a comment!');
+            } else if ( formData.phone.length < 10 ) {
+                pass = false;
+                $('#js-error-message').text('Please enter a valid phone number');
             }
         });
 
@@ -196,7 +199,13 @@ function formInputCheck() {
         let inputValue = $(this).val().trim();
         
         inputValue ? $(this).removeClass("border-bottom-red border-bottom").addClass("border-bottom-green") : $(this).removeClass("border-bottom-green border-bottom").addClass("border-bottom-red");
-	});
+    });
+    
+    $("input[type=number]").change(function() {
+        let numberValue = $(this).val().trim();
+
+        numberValue.length < 10 ? $(this).removeClass("border-bottom-green border-bottom").addClass("border-bottom-red") : $(this).removeClass("border-bottom-red border-bottom").addClass("border-bottom-green");
+    });
 }
 
 $(formInputCheck);
