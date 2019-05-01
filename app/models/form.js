@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const formSchema = mongoose.Schema({
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: Number, required: true },
+    firstName: { type: String },
+    lastName: { type: String },
+    email: { type: String },
+    phone: { type: Number },
     address: { type: String },
     monthlyRent: { type: Number },
     comments: { type: String },

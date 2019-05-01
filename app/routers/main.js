@@ -9,7 +9,7 @@ module.exports = function(app, passport) {
     });
 
     app.get('/loginForm', function(req, res) {
-        res.render('pages/login');
+        res.render('pages/login', { message: req.flash('loginMessage') });
     });
 
     app.get('/submit', function(req, res) {

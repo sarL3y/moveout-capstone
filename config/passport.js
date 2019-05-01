@@ -28,10 +28,10 @@ module.exports = function(passport) {
                         return done(err);
 
                     if (!user)
-                        return done(null, false, req.flash('loginMessage', 'Incorrect username'));
+                        return done(null, false, req.flash('loginMessage', 'Incorrect username. Try again.'));
 
                     if (!user.validatePassword(password)) 
-                        return done(null, false, req.flash('loginMessage', 'Incorrect password'));
+                        return done(null, false, req.flash('loginMessage', 'Incorrect password. Try again.'));
 
                     return done(null, user);
                 });

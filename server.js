@@ -20,7 +20,6 @@ require('./config/passport')(passport);
 
 app.use(morgan('dev'));
 app.use(bodyParser());
-//app.use(express.json());
 app.use(flash());
 app.use(session({ secret: 'moveoutsessionsecret' }));
 app.use(passport.initialize());
@@ -34,7 +33,9 @@ require('./app/routers/main.js')(app, passport);
 require('./app/routers/auth.js')(app, passport);
 require('./app/routers/forms.js')(app, passport);
 
-app.use('/users', users);
+/* -------FUTURE FUNCTIONALITY------- */
+// app.use('/users', users);
+/* ---------------------------------- */
 
 mongoose.Promise = global.Promise; 
 

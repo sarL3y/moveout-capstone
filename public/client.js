@@ -17,7 +17,7 @@ function submitForm(form) {
     })
         .then(res => {
             if (res.ok) {
-                return window.location = '/success';
+                return res.ok;
             }
             throw new Error(res.statusText);
         })
@@ -33,10 +33,22 @@ function watchSubmitFormClick() {
         event.preventDefault();
 
         $(this).serializeArray().map(function(input) {
-            formData[input.name] = input.value;
+            formData[input.name] = input.value.trim();
         });
 
-        submitForm(formData);
+        let pass = true;
+    
+        Object.keys(formData).forEach(key => {
+            if( formData[key].trim() == "" ) {
+                pass = false;
+                $('#js-error-message').text('Fill out all the fields!');
+            }
+        });            
+        
+        if ( pass === true ) {
+            submitForm(formData);
+            window.location = '/success';
+        }
     });
 }
 
@@ -61,7 +73,7 @@ function getForms() {
         .then(resJson => displayForms(resJson))
 
         .catch(err => {
-            $('.forms-list').text(`Oops, something went wrong while returning results. ${err.message}.`);
+            $('.forms-list').text(`Something went wrong while returning results. ${err.message}.`);
         });
 };
 
@@ -173,6 +185,15 @@ function watchDeleteBtn() {
     });
 }
 
+function formInputCheck() {
+	$("input").change(function() {
+        let inputValue = $(this).val().trim();
+        
+        inputValue ? $(this).removeClass("border-bottom-red border-bottom").addClass("border-bottom-green") : $(this).removeClass("border-bottom-green border-bottom").addClass("border-bottom-red");
+	});
+}
+
+$(formInputCheck);
 $(watchSubmitFormClick);
 $(watchDeleteBtn);
 $(watchFormClick);
