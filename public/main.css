@@ -50,7 +50,8 @@ img {
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
+    width: 100%;
     padding: 0;
     margin-left: 5%;
 }
@@ -99,34 +100,32 @@ h2 {
 }
 
 .get-started-btn {
-   flex: 2;
 }
 
 .reviews {
     display: flex;
     flex-direction: column;
     justify-content: center;
-	height: 100%;
+	height: 100vh;
     width: 100%;
     position: absolute;
-    top: 100%;
-    overflow: hidden;
+    top: 110%;
 }
 
 .reviews-container {
     display: flex;
-    flex: 1;
-    justify-content: space-around;
-    margin: 2vh auto 0 auto;
+    justify-content: center;
+    flex-wrap: wrap;
     padding: 10px;
 }
 
 .review {
+    flex-basis: 300px;
     background: #ffffff;
     border-radius: 10px;
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.1), 0 8px 24px 0 rgba(0,0,0,0.2);
     padding: 30px;
-    width: 25%;
+    margin: 30px;
     color: #2B2C8C;
 }
 
@@ -223,6 +222,10 @@ a {
 }
 
 .btn {
+    cursor: pointer;
+}
+
+.btn {
     appearance: none;
     -o-appearance: none;
 	-ms-appearance: none;
@@ -244,6 +247,26 @@ a {
     flex: 1;
     justify-content: center;
     margin: 2vh auto;
+}
+
+.form-edit {
+    text-align: center;
+}
+
+.edit-btn {
+    width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.edit-form {
+    width: 50%;
+    padding: 50px;
+    margin: 10px auto;
+}
+
+input.edit-submit-btn {
+    text-align: center;
 }
 
 .form-input {
@@ -277,6 +300,20 @@ a {
     font-weight: bold;
 }
 
+.form-item:hover {
+    background-color: #e8eaf6;
+    cursor: pointer;
+}
+
+.form-item p {
+    flex: 8;
+}
+
+.form-item span {
+    flex: 1;
+    align-self: center;
+}
+
 .item {
     font-size: 20px;
 }
@@ -295,19 +332,6 @@ a {
 
 .p-bold {
     font-weight: bold;
-}
-
-.form-item:hover {
-    background-color: #e8eaf6;
-}
-
-.form-item p {
-    flex: 8;
-}
-
-.form-item span {
-    flex: 1;
-    align-self: center;
 }
 
 .login-form-container, .submit-form-container, .success-form-container {
@@ -504,6 +528,11 @@ footer a {
     margin-left: 10px;
 }
 
+.form-icons:hover {
+    cursor: pointer;
+    background-color: #000051;
+}
+
 .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
@@ -537,6 +566,10 @@ footer a {
         font-size: 16px;
     }
 
+    img {
+        width: 250px;
+    }
+
     .submit-form-container {
         display: flex;
         flex-direction: column;
@@ -559,12 +592,12 @@ footer a {
     
     .submit-form-about {
         flex-direction: column;
-        border-right: 1px solid #2B2C8C;
         padding-right: 20px;
-        margin: auto;
-        margin-right: 20px;
-        font-style: normal;
         text-align: right;
+    }
+
+    .login-form-about, .submit-form-about, .success-form-about {
+        margin: auto;
     }
 
     .row {
@@ -582,7 +615,6 @@ footer a {
         flex-direction: column;
         justify-content: center;
         position: relative;
-        top: 100%;
         height: 100%;
         width: 100%;
     }
@@ -593,8 +625,6 @@ footer a {
 
     .reviews-container {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         margin-top: 1vh;
         padding: 10px;
@@ -602,8 +632,8 @@ footer a {
 
     .review {
         padding: 20px;
+        flex-basis: 200px;
         color: #2B2C8C;
-        width: 75%;
         margin-top: 2vh;
     }
 
@@ -655,6 +685,10 @@ footer a {
         padding: 30px;
         background: white;
         border-radius: 10px;
+    }
+
+    .edit-form {
+        padding: 10px;
     }
 
     .forms-list-container {

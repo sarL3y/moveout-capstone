@@ -8,7 +8,6 @@ const { Form } = require('../models/form');
 module.exports = function(app, passport) {
 
     app.get('/formsList',  (req, res) => {
-
         Form
             .find()
             .then(forms => {
@@ -23,7 +22,6 @@ module.exports = function(app, passport) {
     });
     
     app.post('/submitForm', (req, res) => {
-
         Form
             .create(req.body)
             .then(form => res.send(201))
@@ -34,14 +32,23 @@ module.exports = function(app, passport) {
             });
     });
 
-    app.delete('/deleteForm/:id', (req, res) => {
+    app.patch('/editForm/:id', (req, res) => {        
+        Form
+            .findByIdAndUpdate(req.params.id, req.body)
+            .then(form => res.status(204).end())
+            .catch(err =>
+                res.status(500).json({
+                    error: 'Couldn\'t edit form... Try again.'
+                }));
+    });
 
+    app.delete('/deleteForm/:id', (req, res) => {
         Form
             .findByIdAndRemove({ _id: req.params.id })
             .then(res.status(204).end())
             .catch(err =>
                 res.status(500).json({
-                    error: 'Couldn\'t delete form'
+                    error: 'Couldn\'t delete form... Try again.'
                 }));
     });
 };
