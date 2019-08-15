@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/sarL3y/moveout-capstone.svg?branch=master)](https://travis-ci.org/sarL3y/moveout-capstone)
 
-This app is a service site for clients to submit request forms to the company. Hidden from the client, the company can view all request details with the option to delete them.
+This app is a service site for clients to submit request forms to the company. Hidden from the client behind an authorization wall, the company can view all request details with the option to delete them.
 
 ### Demo
 
@@ -30,7 +30,7 @@ Password: moveoutadmin123
   <img src="public/img/LoginPage.png" alt="Login Page" width="600">
 </h1>
 
-Company can view the dashboard to see submitted requests, with the option to delete:
+Client can view an admin dashboard to see submitted requests, with the option to edit and delete the forms:
 
 <h1 align="center">
   <img src="public/img/Dashboard.png" alt="Login Page" width="600">
@@ -38,7 +38,7 @@ Company can view the dashboard to see submitted requests, with the option to del
 
 ### API
 
-This app uses Mongoose Schemas to create the submitted forms. A fetch call is used to retrieve the submitted forms from the dashboard.
+This app uses Mongoose Schemas to create the submitted forms. Fetch calls are used to interact with the forms on the submit and dashboard pages.
 
 ### Technologies
 * HTML with Embedded Javascript files
